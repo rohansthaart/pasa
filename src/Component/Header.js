@@ -1,6 +1,6 @@
 import React from "react";
 import "./Header.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+
 import SearchIcon from "@material-ui/icons/Search";
 function Header() {
   return (
@@ -39,12 +39,16 @@ function Header() {
           </li>
           <li className="dropdown nav-item">
             <a href="#" className="nav-link">
-              Department
+              Departments
             </a>
             <div class="dropdown-content">
-              <a href="#">Link 1</a>
-              <a href="#">Link 2</a>
-              <a href="#">Link 3</a>
+              <a href="#">Clothing</a>
+              <a href="#">Shoes</a>
+              <a href="#">Shoes</a>
+              <a href="#">Gadgets</a>
+              <a href="#">Funiture and decor</a>
+              <a href="#">Accessories</a>
+              <a href="#">Entertainment</a>
             </div>
           </li>
         </ul>
