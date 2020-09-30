@@ -1,0 +1,19 @@
+.main {
+  margin-top: auto;
+}
+#outlined-basic {
+  width: 500px;
+  height: 10px;
+}
+.signin-btn {
+  margin-top: 20px;
+}
+.fg-text {
+  text-align: right;
+  margin-top: 30px;
+  color: red;
+  cursor: pointer;
+}
+h2 {
+  text-align: center;
+}

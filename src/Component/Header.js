@@ -3,6 +3,8 @@ import "./Header.css";
 import DepartmentCard from "./DepartmentCard";
 import AvatarLogin from "./AvatarLogin";
 import Cart from "./Cart";
+import Button from "./LoginButton";
+import { Link } from "react-router-dom";
 function Header() {
   return (
     <div>
@@ -26,19 +28,22 @@ function Header() {
         <div className="collapse navbar-collapse" id="navbarsExample04">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
-              <a className="nav-link" href="#">
+              {/* <a className="nav-link" href="#">
                 Home <span className="sr-only">(current)</span>
-              </a>
+              </a> */}
+              <Link to="/" className="nav-link">
+                Home
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <Link to="/shop" className="nav-link">
                 Shop
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link " href="#">
+              <Link to="/account" className="nav-link ">
                 Account
-              </a>
+              </Link>
             </li>
             <li className="dropdown nav-item">
               <a href="#" className="nav-link">
@@ -87,7 +92,10 @@ function Header() {
           <form className="form-inline my-2 my-md-0">
             <input className="form-control" type="text" placeholder="Search" />
           </form>
-          <AvatarLogin />
+          {/* <AvatarLogin /> */}
+          <Link to="/login" className="nav-link">
+            <Button />
+          </Link>
           <Cart />
         </div>
       </nav>
