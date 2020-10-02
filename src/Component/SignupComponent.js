@@ -1,5 +1,9 @@
 import React, { useState } from "react";
-import { Button } from "@material-ui/core";
+import { Button, CircularProgress } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
+
+import { ToastsStore, ToastsContainer } from "react-toasts";
+
 export default function SignupComponent() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -7,16 +11,60 @@ export default function SignupComponent() {
   const [password1, setPassword1] = useState("");
   const [password2, setPassword2] = useState("");
   const [phone, setPhone] = useState("");
+  const [isloading, setisLoading] = useState(false);
+  const history = useHistory();
+
+  const signup = () => {
+    if (firstName.length < 3) {
+      ToastsStore.error("First name must contain atleast 3 characters");
+    } else if (lastName.length == 0) {
+      ToastsStore.error("Last name is empty");
+    } else if (phone.length < 10) {
+      ToastsStore.error("Invalid phone number");
+    } else if (password1 != password2 || password1.length == 0) {
+      ToastsStore.error("Password didnot matched");
+    } else {
+      setisLoading(true);
+      register();
+    }
+  };
+
+  const register = () => {
+    fetch(`/user/signup`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        firstName,
+        lastName,
+        email,
+        phone,
+        password: password1,
+      }),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        result.status == 200
+          ? ToastsStore.success(result.message)
+          : ToastsStore.error(result.message);
+        if (result.user) {
+          localStorage.setItem("Pasa-User", JSON.stringify(result.user));
+          history.push("user-verify");
+        }
+        setisLoading(false);
+      })
+      .catch((err) => console.log(err));
+  };
 
   const hanldeSubmit = (e) => {
     e.preventDefault();
-    alert(
-      `first : ${firstName} last: ${lastName} email: ${email} phone: ${phone} p1:${password1} p2: ${password2}`
-    );
+    signup();
   };
 
   return (
     <div class="card" style={{}}>
+      <ToastsContainer className="mytoast" store={ToastsStore} />
       <div class="card-body">
         <h1>No account? Signup</h1>
 
@@ -76,16 +124,21 @@ export default function SignupComponent() {
             </div>
           </div>
           <div className="d-flex justify-content-end">
-            {/* <h6>Forgot Password?</h6> */}
-
-            <Button
-              type="submit"
-              variant="contained"
-              color="secondary"
-              style={{ marginTop: 30, width: 100 }}
-            >
-              Signup
-            </Button>
+            {isloading ? (
+              <CircularProgress
+                color="secondary"
+                style={{ marginRight: 10, marginTop: 20 }}
+              />
+            ) : (
+              <Button
+                type="submit"
+                variant="contained"
+                color="secondary"
+                style={{ marginTop: 30, width: 100 }}
+              >
+                Signup
+              </Button>
+            )}
           </div>
         </form>
       </div>

@@ -1,0 +1,10 @@
+.verifyContainer {
+  /* margin: auto;
+  margintop: auto;
+  max-width: 350px; */
+  padding: 10px;
+  max-width: 300px;
+}
+.verificationToast {
+  height: 70px;
+}

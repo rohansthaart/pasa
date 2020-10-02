@@ -5,6 +5,8 @@ import Login from "./LoginComponent";
 import Home from "./HomeComponent";
 import Account from "./AccountComponent";
 import Shop from "./ShopComponent";
+import UserVerificationScreen from "./UserVerificationScreen";
+import Profile from "./ProfileComponent";
 
 export default function MainComponent(props) {
   return (
@@ -15,6 +17,8 @@ export default function MainComponent(props) {
         <Route path="/login" component={Login} />
         <Route path="/account" component={Account} />
         <Route path="/shop" component={Shop} />
+        <Route path="/user-verify" component={UserVerificationScreen} />
+        <Route path="/profile" component={Profile} />
       </Switch>
     </div>
   );
