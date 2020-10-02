@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Header.css";
 import DepartmentCard from "./DepartmentCard";
 import AvatarLogin from "./AvatarLogin";
 import Cart from "./Cart";
 import Button from "./LoginButton";
 import { Link } from "react-router-dom";
+import { useUser } from "../Context/UserContext";
 function Header() {
+  const { isSessionAvailable } = useUser();
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  }, []);
   return (
     <div>
       <nav className="navbar navbar-expand-md navbar-light bg-light">
@@ -92,10 +100,14 @@ function Header() {
           <form className="form-inline my-2 my-md-0">
             <input className="form-control" type="text" placeholder="Search" />
           </form>
-          {/* <AvatarLogin /> */}
-          <Link to="/login" className="nav-link">
-            <Button />
-          </Link>
+
+          {isSessionAvailable ? (
+            <AvatarLogin />
+          ) : (
+            <Link to="/login" className="nav-link">
+              <Button />
+            </Link>
+          )}
           <Cart />
         </div>
       </nav>

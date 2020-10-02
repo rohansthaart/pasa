@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import { CircularProgress, Button } from "@material-ui/core";
-import { baseUrl } from "../Constants/urls";
-import { ToastsStore, ToastsContainer } from "react-toasts";
+import { useHistory } from "react-router-dom";
+import { ToastsStore } from "react-toasts";
+import { useUser } from "../Context/UserContext";
 
 export default function SigninComponent() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const history = useHistory();
+  const { setIsSessionAvailable } = useUser();
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
@@ -28,6 +31,8 @@ export default function SigninComponent() {
         if (result.status === 200) {
           ToastsStore.success(result.message);
           setLoading(false);
+          setIsSessionAvailable(true);
+          history.push("profile");
         } else {
           ToastsStore.error(result.message);
           setLoading(false);

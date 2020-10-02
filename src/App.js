@@ -1,12 +1,15 @@
 import React from "react";
 import MainComponent from "./Component/MainComponent";
 import { BrowserRouter } from "react-router-dom";
+import { UserProvider } from "./Context/UserContext";
 
 function App() {
   return (
-    <BrowserRouter>
-      <MainComponent />
-    </BrowserRouter>
+    <UserProvider>
+      <BrowserRouter>
+        <MainComponent />
+      </BrowserRouter>
+    </UserProvider>
   );
 }
 
