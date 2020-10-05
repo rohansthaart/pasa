@@ -1,5 +1,12 @@
-import React from "react";
-
+import React, { useState } from "react";
+import SingleProduct from "./SingleProduct";
+import Products from "./Products";
+import TopCarousel from "./TopCarousel";
 export default function HomeComponent() {
-  return <div>Home</div>;
+  return (
+    <div>
+      <TopCarousel />
+      <Products />
+    </div>
+  );
 }

@@ -9,6 +9,7 @@ import UserVerificationScreen from "./UserVerificationScreen";
 import Profile from "./ProfileComponent";
 import Loader from "./Loader";
 import "./Main.css";
+
 export default function MainComponent(props) {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -26,6 +27,7 @@ export default function MainComponent(props) {
     return (
       <div>
         <Header />
+
         <Switch location={props.location}>
           <Route path="/" exact component={Home} />
           <Route path="/login" component={Login} />

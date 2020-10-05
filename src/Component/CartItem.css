@@ -1,0 +1,20 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.delete {
+  border: 0;
+  background-color: transparent;
+  color: crimson;
+}
+.delete:hover {
+  color: black;
+}
+
+img {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  margin: 0;
+}

@@ -1,29 +1,64 @@
 import React from "react";
 import Badge from "@material-ui/core/Badge";
-import { withStyles } from "@material-ui/core/styles";
-import IconButton from "@material-ui/core/IconButton";
+import PaymentIcon from "@material-ui/icons/Payment";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-import "./Header.css";
-
-const StyledBadge = withStyles((theme) => ({
-  badge: {
-    right: -3,
-    top: 13,
-    border: `2px solid ${theme.palette.background.paper}`,
-    padding: "0 4px",
-  },
-}))(Badge);
+import "./Cart.css";
+import CartItem from "./CartItem";
 
 export default function CustomizedBadges() {
   return (
-    <div>
-      <IconButton aria-label="cart" className="dropdown">
-        <StyledBadge badgeContent={9} color="secondary">
-          <ShoppingCartIcon />
-        </StyledBadge>
-      </IconButton>
-      <div class="dropdown-content">
-        <a href="#">aa</a>
+    <div className="dropdown">
+      <div
+        type="hover"
+        id="dropdownMenuButton"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <Badge badgeContent={4} color="primary">
+          <ShoppingCartIcon fontSize="large" color="error" />
+        </Badge>
+      </div>
+
+      <div className="dropdown-menu dropdown-menu-right">
+        <table className="table table-borderless">
+          <thead>
+            <tr>
+              <th scope="col">Product</th>
+              <th scope="col">Description</th>
+              <th scope="col">Q X P</th>
+              <th scope="col">Remove</th>
+            </tr>
+          </thead>
+
+          <CartItem
+            url="https://s.cdpn.io/3/dingo-dog-bones.jpg"
+            title="Dingo Dogs"
+            price="12"
+            quantity="4"
+          />
+          <CartItem
+            url="https://media.carphonewarehouse.com/is/image/cpw2/iphone-xrWHITE?$xl-retina$"
+            title="iphone 11"
+            price="12000"
+            quantity="1"
+          />
+          <CartItem
+            url="https://images-na.ssl-images-amazon.com/images/I/71vKyimxsiL._UX679_.jpg"
+            title="Relish"
+            price="12"
+            quantity="4"
+          />
+        </table>
+        <div className="container">
+          <h7 className="col">
+            <strong>Total:Rs.{12000}</strong>
+          </h7>
+          <button class="btn btn-outline-secondary ">
+            <PaymentIcon />
+            Checkout
+          </button>
+        </div>
       </div>
     </div>
   );

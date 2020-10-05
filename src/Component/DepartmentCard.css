@@ -105,23 +105,3 @@ p {
   background-color: blue;
   cursor: pointer;
 }
-
-/* Optional
-
-.property-image-title
-{
-text-align:center;
-position:Relative;
-top:30%;
-opacity:0;
-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) 0.2s;
-color:black;
-font-size:1.2em;
-}
-
-.property-card:hover .property-image-title
-{
-opacity:1;
-}
-
-*/

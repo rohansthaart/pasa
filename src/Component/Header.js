@@ -15,7 +15,7 @@ function Header() {
     }, 1000);
   }, []);
   return (
-    <div>
+    <div class="header">
       <nav className="navbar navbar-expand-md navbar-light bg-light">
         <a className="navbar-brand" href="#">
           Store
@@ -57,7 +57,7 @@ function Header() {
               <a href="#" className="nav-link">
                 Departments
               </a>
-              <div class="dropdown-content">
+              <div className="dropdown-content">
                 <a href="#">
                   <DepartmentCard
                     title="Clothing"

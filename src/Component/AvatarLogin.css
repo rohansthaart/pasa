@@ -1,3 +1,7 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
 .avatar {
   padding: 2px;
   margin: 0 5px;
