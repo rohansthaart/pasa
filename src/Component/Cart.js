@@ -49,6 +49,12 @@ export default function CustomizedBadges() {
             price="12"
             quantity="4"
           />
+          <CartItem
+            url="https://cdn.mos.cms.futurecdn.net/TxggG6LsWjSnKrx78gVUej-1200-80.jpg"
+            title="Surface 3 Pro"
+            price="85000"
+            quantity="1"
+          />
         </table>
         <div className="container">
           <h7 className="col">

@@ -7,7 +7,7 @@ function SingleProduct(props) {
   return (
     <div
       className="card"
-      style={{ width: "188px", height: "315px", margin: "15px" }}
+      style={{ width: "190px", height: "315px", margin: "15px" }}
     >
       <img
         src={props.url}
