@@ -1,8 +1,12 @@
-import React from "react";
+import React,{useState,useContext} from "react";
 import "./CartItem.css";
+import {cartContext} from '../Context/useCart'
 
 import DeleteIcon from "@material-ui/icons/Delete";
+
 function CartItem(props) {
+  const [cardItem,setCardItem]= useContext(cartContext);
+
   return (
     <tbody>
       <tr>

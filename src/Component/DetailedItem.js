@@ -6,7 +6,78 @@ import StarHalfIcon from "@material-ui/icons/StarHalf";
 import IndeterminateCheckBoxOutlinedIcon from "@material-ui/icons/IndeterminateCheckBoxOutlined";
 import AddBoxOutlinedIcon from "@material-ui/icons/AddBoxOutlined";
 import PaymentOutlinedIcon from "@material-ui/icons/PaymentOutlined";
+import { Description } from "@material-ui/icons";
+import Specification from "./Specification";
+import Reviews from "./Review";
 function DetailedItem() {
+  const [count, setCount] = useState(1);
+  const specification = [
+    " Brand	HP",
+    "Series	Omen",
+    "Item model number	dh1054nr",
+    "Hardware Platform	PC",
+    "Operating System	Windows 10 Home",
+    "Item Weight	5.43 pounds",
+    "Product Dimensions	10.35 x 14.17 x 0.79 inches",
+    "Item Dimensions LxWxH	10.35 x 14.17 x 0.79 inches",
+    "Color	Black",
+    "Processor Brand	Intel",
+    "Processor Count	6",
+    "Computer Memory Type	DDR4 SDRAM",
+    "Flash Memory Size	512 GB",
+    "Hard Drive Interface	Solid State",
+    "Batteries	1 Lithium Polymer batteries required. (included)",
+  ];
+  const reviews = [
+    {
+      postId: 1,
+      id: 1,
+      name: "id labore ex et quam laborum",
+      email: "Eliseo@gardner.biz",
+      image: `https://thispersondoesnotexist.com/image`,
+      body:
+        "laudantium enim quasi est quidem magnam voluptate ipsam eos tempora quo necessitatibus dolor quam autem quasi reiciendis et nam sapiente accusantium",
+    },
+    {
+      postId: 1,
+      id: 2,
+      name: "quo vero reiciendis velit similique earum",
+      email: "Jayne_Kuhic@sydney.com",
+      image: `https://thispersondoesnotexist.com/image`,
+      body:
+        "est natus enim nihil est dolore omnis voluptatem numquam et omnis occaecati quod ullam at voluptatem error expedita pariatur nihil sint nostrum voluptatem reiciendis et",
+    },
+    {
+      postId: 1,
+      id: 3,
+      name: "odio adipisci rerum aut animi",
+      email: "Nikita@garfield.biz",
+      image: `https://thispersondoesnotexist.com/image`,
+      body:
+        "quia molestiae reprehenderit quasi aspernatur aut expedita occaecati aliquam eveniet laudantium omnis quibusdam delectus saepe quia accusamus maiores nam est cum et ducimus et vero voluptates excepturi deleniti ratione",
+    },
+    {
+      postId: 1,
+      id: 4,
+      name: "alias odio sit",
+      email: "Lew@alysha.tv",
+      image: `https://thispersondoesnotexist.com/image`,
+      body:
+        "non et atque occaecati deserunt quas accusantium unde odit nobis qui voluptatem quia voluptas consequuntur itaque dolor et qui rerum deleniti ut occaecati",
+    },
+    {
+      postId: 1,
+      id: 5,
+      name: "vero eaque aliquid doloribus et culpa",
+      email: "Hayden@althea.biz",
+      image: `https://thispersondoesnotexist.com/image`,
+      body:
+        "harum non quasi et ratione tempore iure ex voluptates in ratione harum architecto fugit inventore cupiditate voluptates magni quo et",
+    },
+  ];
+
+  const [description, setDescription] = useState("specification");
+  let price = 133333;
   return (
     <div className="detail-specification">
       <div className="row">
@@ -17,7 +88,7 @@ function DetailedItem() {
                 <a data-target="#myCarouselArticle" data-slide-to="0">
                   <img
                     class="img-fluid fit-image"
-                    src="https://lp2.hm.com/hmgoepprod?set=quality[79],source[/d5/e5/d5e5c9ac1b58d6ab5319d359ae7233dcab4a11c2.jpg],origin[dam],category[men_hoodiessweatshirts_hoodies],type[LOOKBOOK],res[m],hmver[1]&call=url[file:/product/main]"
+                    src="https://images-na.ssl-images-amazon.com/images/I/61bFn1z7-IL._AC_SL1000_.jpg"
                   />
                 </a>
               </li>
@@ -26,7 +97,7 @@ function DetailedItem() {
                 <a data-target="#myCarouselArticle" data-slide-to="1">
                   <img
                     class="img-fluid fit-image"
-                    src="https://lp2.hm.com/hmgoepprod?set=quality[79],source[/9a/02/9a0284133799b0cd0b508c43302622ca8403c848.jpg],origin[dam],category[men_hoodiessweatshirts_hoodies],type[LOOKBOOK],res[s],hmver[1]&call=url[file:/product/main]"
+                    src="https://images-na.ssl-images-amazon.com/images/I/51-MC4In9%2BL._AC_SL1000_.jpg"
                     alt=""
                   />
                 </a>
@@ -36,7 +107,7 @@ function DetailedItem() {
                 <a data-target="#myCarouselArticle" data-slide-to="2">
                   <img
                     class="img-fluid fit-image"
-                    src="https://i.dell.com/sites/csimages/Video_Imagery/all/xps_7590_touch.png"
+                    src="https://images-na.ssl-images-amazon.com/images/I/513uTnDay6L._AC_SL1000_.jpg"
                     alt=""
                   />
                 </a>
@@ -51,7 +122,7 @@ function DetailedItem() {
               <div class="carousel-item active">
                 <img
                   className="slide-image"
-                  src="https://lp2.hm.com/hmgoepprod?set=quality[79],source[/d5/e5/d5e5c9ac1b58d6ab5319d359ae7233dcab4a11c2.jpg],origin[dam],category[men_hoodiessweatshirts_hoodies],type[LOOKBOOK],res[m],hmver[1]&call=url[file:/product/main]"
+                  src="https://images-na.ssl-images-amazon.com/images/I/61bFn1z7-IL._AC_SL1000_.jpg"
                   alt="Card image cap"
                   title=""
                 />
@@ -59,7 +130,7 @@ function DetailedItem() {
               <div class="carousel-item">
                 <img
                   className="slide-image"
-                  src="https://lp2.hm.com/hmgoepprod?set=quality[79],source[/9a/02/9a0284133799b0cd0b508c43302622ca8403c848.jpg],origin[dam],category[men_hoodiessweatshirts_hoodies],type[LOOKBOOK],res[s],hmver[1]&call=url[file:/product/main]"
+                  src="https://images-na.ssl-images-amazon.com/images/I/51-MC4In9%2BL._AC_SL1000_.jpg"
                   alt="Card image cap"
                   title=""
                 />
@@ -67,7 +138,7 @@ function DetailedItem() {
               <div class="carousel-item">
                 <img
                   className="slide-image"
-                  src="https://i.dell.com/sites/csimages/Video_Imagery/all/xps_7590_touch.png"
+                  src="https://images-na.ssl-images-amazon.com/images/I/513uTnDay6L._AC_SL1000_.jpg"
                   alt="Card image cap"
                   title=""
                 />
@@ -75,123 +146,144 @@ function DetailedItem() {
             </div>
           </div>
         </div>
-        <div className="col-lg-6 col-md-12 ">
+        <div className="col-lg-6 col-xl-3 col-md-12 ">
           <div className="product_title">
-            <h3>Ghost Of Disapproval Pullover Hoodie</h3>
+            <h3>
+              HP OMEN 15-dh1054nr 15.6" Gaming Laptop; i7-10750H, 16GB DDR4
+              Memory, 512GB SSD, Nvidia GeForce 1660Ti
+            </h3>
           </div>
           <div className="rating-review">
             <StarIcon />
             <StarIcon />
             <StarIcon />
             <StarIcon />
-            <StarIcon /> 12 Reviews
+            <StarIcon /> 12 ratings
           </div>
-          <div className="brand-name">Brand: h&m </div>
+          <div className="brand-name">Brand:HP store</div>
           <div className="small-description">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Orci ac
-            auctor augue mauris augue neque gravida in fermentum. Ullamcorper a
-            lacus vestibulum sed arcu. Ultrices in iaculis nunc sed augue lacus
-            viverra vitae...
+            Intel Core i7-10750H Processor 2.6GHz NVIDIA GeForce GTX 1660 Ti 6GB
+            GDDR5 16GB DDR4-2933 RAM 512GB Solid State Drive Microsoft Windows
+            10 Home Multi-Format SD Media Card Reader 10/100/1000 Network Intel
+            Wi-Fi 6 AX 201 (2x2)+Bluetooth 5.0 Combo 15.6" FUll HD 144Hz IPS
+            Anti-Glare Micro-Edge WLED-backlit Display Ultra thin, ultra light,
+            and unbelievably powerful, the OMEN 15 Laptop packs high performance
+            graphics, processing power, and a blazing fast refresh rate into a
+            sleek design...
           </div>
           <div className="Price">
-            <h3>Rs.1600</h3>
+            <h3>Rs.{price}</h3>
+
             <h4>
-              <span className="discount">Rs.2000</span> -20%
+              <span className="discount">Rs.160000 </span> -20%
             </h4>
+            <h4>6 stocks remaining</h4>
           </div>
           <div className="quantity mt-4">
             Quantity:{" "}
-            <button className="btn ">
+            <button
+              className="btn "
+              onClick={() => setCount(count - 1)}
+              disabled={count < 1 ? true : false}
+            >
               <IndeterminateCheckBoxOutlinedIcon />
             </button>
-            <strong>1</strong>
-            <button className="btn ">
+            <strong>{count}</strong>
+            <button className="btn " onClick={() => setCount(count + 1)}>
               <AddBoxOutlinedIcon />
             </button>
           </div>
-          <div className="buy-cart mt-4 center">
-            <button type="button" class="btn btn-outline-primary m-3 ">
-              <PaymentOutlinedIcon />
-              BUY IT NOW
-            </button>
-            <button type="button" class="btn btn-outline-success m-3">
-              <ShoppingCartIcon />
-              Add to Cart
-            </button>
+        </div>
+        <div className="col-lg-12 col-xl-3 col-md-12">
+          <div>
+            <h3> Total: Rs.{count * price}</h3>
+            Delevery Options <br />
+            Bagmati,kathmandu Metro 22- Newroad Area,Newroad{" "}
+            <a href="">CHANGE</a>
+            <div className="row">
+              <div className="delevery-time col">
+                Home Delevery <br />
+                2-5 days
+              </div>
+              <div className="col delevery-charge">
+                Free <br />
+                Cash on Delivery Available
+              </div>
+            </div>
+            <div className="">
+              Return and Warranty <br />
+              7 days returns <br />
+              change of mind is not applicable
+              <br />1 Year Local saller warrenty
+            </div>
+            <div className="saler row">
+              <div className="col">
+                Sold by
+                <br />
+                iTeam
+              </div>
+              <div className="col">Chat Now</div>
+            </div>
+            <div className="buy-cart mt-4 center">
+              <button type="button" class="btn btn-outline-primary m-3 ">
+                <PaymentOutlinedIcon />
+                BUY IT NOW
+              </button>
+              <button type="button" class="btn btn-outline-success m-3">
+                <ShoppingCartIcon />
+                Add to Cart
+              </button>
+            </div>
+            <div className="row ">
+              <div className="col">
+                <h7> Positive Seller Ratings</h7> <br />
+                <h3>76%</h3>
+              </div>
+              <div className="col">
+                <h7>Ship on Time</h7>
+                <br />
+                <h3>100%</h3>
+              </div>
+              <div className="col">
+                <h7>Chat Response Rate</h7>
+                <br />
+                <h3>100%</h3>
+              </div>
+            </div>
           </div>
         </div>
       </div>
       <hr />
-      <div className="specification">
-        <ul className="nav " id="myTab" role="tablist">
-          <li className="nav-item">
-            <a
-              className="nav-link active"
-              id="home-tab"
-              data-toggle="tab"
-              href="#home"
-              role="tab"
-            >
-              <h3>Specifications</h3>
-            </a>
-          </li>
-          <li className="nav-item">
-            <a
-              className="nav-link"
-              id="profile-tab"
-              data-toggle="tab"
-              href="#profile"
-              role="tab"
-            >
-              <h3>Reviews</h3>
-            </a>
-          </li>
-        </ul>
-        <div className="tab-content" id="myTabContent">
-          <div
-            className="tab-pane fade show active"
-            id="home"
-            role="tabpanel"
-            aria-labelledby="home-tab"
+      <div className="review-specification">
+        <div>
+          <button
+            className="btn"
+            onClick={() => setDescription("specification")}
           >
-            <ul style={{ marginLeft: "5px" }}>
-              <li>
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
-                diam nonummy nibh euismod tincidunt ut laoreet
-              </li>
-              <li>
-                Ut wisi enim ad minim veniam, quis nostrud exerci tation
-                ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo
-                consequat
-              </li>
-              <li>
-                Duis autem vel eum iriure dolor in hendrerit in vulputate velit
-                esse molestie consequat, vel illum
-              </li>
-              <li>
-                Duis autem vel eum iriure dolor in hendrerit in vulputate velit
-                esse molestie consequat, vel illum
-              </li>
-              <li>
-                Duis autem vel eum iriure dolor in hendrerit in vulputate velit
-                esse molestie consequat, vel illum
-              </li>
-              <li>
-                Duis autem vel eum iriure dolor in hendrerit in vulputate velit
-                esse molestie consequat, vel illum
-              </li>
-            </ul>
-          </div>
-          <div
-            className="tab-pane fade"
-            id="profile"
-            role="tabpanel"
-            aria-labelledby="profile-tab"
-          >
-            ...
-          </div>
+            <h3>Specification</h3>
+          </button>
+          <button className="btn" onClick={() => setDescription("review")}>
+            <h3> Reviews</h3>
+          </button>
         </div>
+        {description === "specification" ? (
+          <Specification
+            singleSpecification={specification.map((spec) => {
+              return <li>{spec}</li>;
+            })}
+          />
+        ) : (
+          reviews.map((rev) => {
+            return (
+              <Reviews
+                name={rev.name}
+                email={rev.email}
+                review={rev.body}
+                url={rev.image}
+              />
+            );
+          })
+        )}
       </div>
     </div>
   );

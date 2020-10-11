@@ -48,11 +48,7 @@ function Header() {
                 Shop
               </Link>
             </li>
-            <li className="nav-item">
-              <Link to="/account" className="nav-link ">
-                Account
-              </Link>
-            </li>
+            
             <li className="dropdown nav-item">
               <a href="#" className="nav-link">
                 Departments

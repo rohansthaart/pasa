@@ -28,5 +28,6 @@ export function UserProvider({ children }) {
     setIsSessionAvailable,
     setUser,
   };
+  console.log(value);
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 }

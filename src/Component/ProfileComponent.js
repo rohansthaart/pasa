@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { baseUrl } from "../Constants/urls";
-import { Button } from "@material-ui/core";
+import './ProfileComponent.css'
 import { useUser } from "../Context/UserContext";
 import { useHistory } from "react-router-dom";
 
@@ -32,13 +32,10 @@ export default function ProfileComponent() {
     setIsSessionAvailable(false);
   };
   return (
-    <div>
-      <Button color="secondary" variant="contained" onClick={checkUser}>
-        Check User
-      </Button>
-      <Button color="secondary" variant="contained" onClick={logout}>
-        Logout
-      </Button>
-    </div>
+    <section className='row checkUser' >
+      <button className='btn btn-outline-primary checkUser' onClick={checkUser} >Check User</button><br/>
+      <button className='btn btn-outline-primary logOut' onClick={logout}> Log Out</button>
+     
+      </section>
   );
 }
