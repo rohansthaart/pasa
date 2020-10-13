@@ -19,6 +19,7 @@ export function ProductProvider({ children }) {
     products,
     setProducts,
     setChanged,
+    changed,
   };
   return (
     <ProductContext.Provider value={value}>{children}</ProductContext.Provider>

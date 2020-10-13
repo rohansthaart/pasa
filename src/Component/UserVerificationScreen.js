@@ -29,7 +29,7 @@ export default function UserVerificationScreen() {
           .then((res) => res.json())
           .then((result) => {
             ToastsStore.success(result.message);
-            history.push("profile");
+            history.push("account");
             setLoading(false);
           })
           .catch((err) => {

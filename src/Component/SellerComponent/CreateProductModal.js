@@ -5,23 +5,26 @@ import { useProduct } from "../../Context/ProductContext";
 import { Spinner } from "react-bootstrap";
 
 export default function CreateProductModal({ modalVisible, closeModal }) {
-  const { setChanged } = useProduct();
+  const { setChanged, changed } = useProduct();
   const [productName, setProductName] = useState("");
   const [price, setPrice] = useState("");
   const [discount, setDiscount] = useState("");
   const [category, setCategory] = useState("Clothes");
   const [subCategory, setSubCategory] = useState("Inner Wear");
   const [description, setDescription] = useState("");
-  const [image, setImage] = useState("");
+  const [pic, setPic] = useState(null);
+  const [image, setImage] = useState([]);
   const [localUrl, setLocalUrl] = useState("");
   const [loading, setLoading] = useState(false);
-  const handleSubmit = () => {
-    setLoading(true);
-    uploadPic();
+  const [uploadLoading, setUploadLoading] = useState(false);
+
+  const addPic = (remoteUrl) => {
+    setImage((prev) => [...prev, remoteUrl]);
   };
   const uploadPic = () => {
+    setUploadLoading(true);
     const data = new FormData();
-    data.append("file", image);
+    data.append("file", pic);
     data.append("upload_preset", "instaPosts");
     data.append("cloud_name", "mycloud17");
     fetch("https://api.cloudinary.com/v1_1/mycloud17/image/upload", {
@@ -30,15 +33,17 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
     })
       .then((res) => res.json())
       .then((data) => {
-        uploadProducts(data.url);
-        setLoading(false);
+        addPic(data.url);
+        setUploadLoading(false);
+        setLocalUrl("");
       })
       .catch((err) => {
         console.log(err);
-        setLoading(false);
+        setUploadLoading(false);
       });
   };
-  const uploadProducts = (img) => {
+  const uploadProducts = () => {
+    setLoading(true);
     fetch("/products", {
       method: "POST",
       headers: {
@@ -50,7 +55,7 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
         category,
         subCategory,
         discount,
-        image: img,
+        image,
         description,
       }),
     })
@@ -60,7 +65,7 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
           ? ToastsStore.success(result.message)
           : ToastsStore.error(result.message);
         closeModal();
-        setChanged(true);
+        setChanged(!changed);
         setLoading(false);
         setImage("");
         setLocalUrl("");
@@ -163,14 +168,28 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
               label="Custom file input"
               custom
               onChange={(e) => {
-                setImage(e.target.files[0]);
+                setPic(e.target.files[0]);
+
                 setLocalUrl(URL.createObjectURL(e.target.files[0]));
               }}
             />
           </Form>
+          <div>
+            <h3>{image.length} photo uploaded</h3>
+          </div>
           {localUrl && (
-            <div style={{ marginTop: 10, textAlign: "center" }}>
+            <div
+              style={{ marginTop: 10 }}
+              className="d-flex justify-content-between"
+            >
               <img src={localUrl} width={100} height={80} />
+              {uploadLoading ? (
+                <Spinner animation="border" role="status">
+                  <span className="sr-only">Loading...</span>
+                </Spinner>
+              ) : (
+                <Button onClick={uploadPic}>Upload</Button>
+              )}
             </div>
           )}
         </Modal.Body>
@@ -183,7 +202,7 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
               <span className="sr-only">Loading...</span>
             </Spinner>
           ) : (
-            <Button variant="primary" onClick={handleSubmit}>
+            <Button variant="primary" onClick={() => uploadProducts()}>
               Post
             </Button>
           )}
