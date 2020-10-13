@@ -3,18 +3,19 @@ import MainComponent from "./Component/MainComponent";
 import { BrowserRouter } from "react-router-dom";
 import { UserProvider } from "./Context/UserContext";
 import { CartProvider } from "./Context/useCart";
+import { ProductProvider } from "./Context/ProductContext";
 
 function App() {
   return (
-   
     <UserProvider>
-      <BrowserRouter>
-      <CartProvider >
-        <MainComponent />
-        </CartProvider>
-      </BrowserRouter>
+      <ProductProvider>
+        <BrowserRouter>
+          <CartProvider>
+            <MainComponent />
+          </CartProvider>
+        </BrowserRouter>
+      </ProductProvider>
     </UserProvider>
-    
   );
 }
 

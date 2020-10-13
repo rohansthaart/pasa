@@ -1,0 +1,23 @@
+.seller-signin {
+  padding: 10px;
+}
+.auth-label {
+  font-size: 20px;
+}
+.forgot-text {
+  font-size: 16px;
+  color: rgb(255, 81, 81);
+  text-align: end;
+}
+.icon-avatar {
+  width: 82px;
+  height: 82px;
+  border-radius: 41px;
+  background-color: rgb(255, 0, 119);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.invalid-text {
+  color: red;
+}

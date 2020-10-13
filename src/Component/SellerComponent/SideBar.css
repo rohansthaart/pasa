@@ -1,0 +1,85 @@
+.nav-pills {
+  font-size: 24px;
+}
+.seller-profile {
+  padding: 15px;
+}
+.username-bg {
+  background-color: #d3c7e9;
+  width: fit-content;
+  padding: 5px;
+  border-radius: 3px;
+  color: blueviolet;
+  font-weight: bold;
+  font-size: 16px;
+}
+.phone-bg {
+  background-color: #ffc2e0;
+  width: fit-content;
+  padding: 5px;
+  border-radius: 3px;
+  margin-top: 3px;
+  color: #ff1493;
+  font-weight: bold;
+  font-size: 16px;
+}
+.citizen-bg {
+  background-color: #ceface;
+  width: fit-content;
+  padding: 5px;
+  border-radius: 3px;
+  margin-top: 3px;
+  color: #73ff00;
+  font-weight: bold;
+  font-size: 16px;
+}
+.profile-info {
+  margin-top: -7px;
+}
+.dashboard-heading-container {
+  margin-bottom: 15px;
+  text-align: center;
+  font-size: 32px;
+  margin-top: -10px;
+  width: 92%;
+}
+.dashboard-heading {
+  font-weight: bold;
+  font-size: 40px;
+  background-color: #00fa9a;
+  color: floralwhite;
+}
+.action-text {
+  font-size: 23px;
+  text-align: center;
+  color: #f37040;
+  font-weight: bold;
+}
+.acc-del-btn {
+  width: 100%;
+  margin-top: 30px;
+}
+.acc-signout-btn {
+  width: 100%;
+  background-color: #00fa9a;
+}
+.action-paper {
+  padding: 10px;
+}
+.donut {
+}
+.graph-container {
+  margin-left: -15px;
+}
+.area {
+  margin-left: 12px;
+}
+.product-container {
+  padding: 15px;
+}
+.product-header {
+  color: #00fa9a;
+}
+.product-table {
+  margin-top: 15px;
+}

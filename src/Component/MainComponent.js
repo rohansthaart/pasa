@@ -8,6 +8,8 @@ import Shop from "./ShopComponent";
 import UserVerificationScreen from "./UserVerificationScreen";
 import Profile from "./ProfileComponent";
 import Loader from "./Loader";
+import SellerEntry from "./SellerComponent/SellerEntry";
+import SellerVerification from "./SellerComponent/SellerVerificationScreen";
 import "./Main.css";
 
 export default function MainComponent(props) {
@@ -34,7 +36,9 @@ export default function MainComponent(props) {
           <Route path="/account" component={Account} />
           <Route path="/shop" component={Shop} />
           <Route path="/user-verify" component={UserVerificationScreen} />
+          <Route path="/seller-verify" component={SellerVerification} />
           <Route path="/profile" component={Profile} />
+          <Route path="/merchant" exact component={SellerEntry} />
         </Switch>
       </div>
     );

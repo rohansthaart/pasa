@@ -1,11 +1,11 @@
-import React,{useState,useContext} from "react";
+import React, { useState, useContext } from "react";
 import "./CartItem.css";
-import {cartContext} from '../Context/useCart'
+import { cartContext } from "../Context/useCart";
 
 import DeleteIcon from "@material-ui/icons/Delete";
 
 function CartItem(props) {
-  const [cardItem,setCardItem]= useContext(cartContext);
+  const [cardItem, setCardItem] = useContext(cartContext);
 
   return (
     <tbody>
@@ -22,7 +22,17 @@ function CartItem(props) {
         </td>
         <td>
           <button className="delete">
-            <DeleteIcon />
+            <DeleteIcon
+              onClick={() => {
+                const virtualCart = [...cardItem];
+                const removedItem = virtualCart.splice(props.index, 1);
+                console.log(removedItem);
+                const newCart = cardItem.filter(
+                  (item) => item.img !== removedItem[0].img
+                );
+                setCardItem(newCart);
+              }}
+            />
           </button>
         </td>
       </tr>
