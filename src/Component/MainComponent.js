@@ -10,6 +10,8 @@ import Profile from "./ProfileComponent";
 import Loader from "./Loader";
 import SellerEntry from "./SellerComponent/SellerEntry";
 import SellerVerification from "./SellerComponent/SellerVerificationScreen";
+import PrivateSellerRoute from "./SellerComponent/PrivateSellerComponent";
+import PrivateUserRoute from "./PrivateUserRoute";
 import "./Main.css";
 
 export default function MainComponent(props) {
@@ -33,12 +35,12 @@ export default function MainComponent(props) {
         <Switch location={props.location}>
           <Route path="/" exact component={Home} />
           <Route path="/login" component={Login} />
-          <Route path="/account" component={Account} />
+          <PrivateUserRoute path="/account" component={Account} />
           <Route path="/shop" component={Shop} />
           <Route path="/user-verify" component={UserVerificationScreen} />
           <Route path="/seller-verify" component={SellerVerification} />
           <Route path="/profile" component={Profile} />
-          <Route path="/merchant" exact component={SellerEntry} />
+          <PrivateSellerRoute path="/merchant" exact component={SellerEntry} />
         </Switch>
       </div>
     );

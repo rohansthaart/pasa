@@ -32,7 +32,7 @@ export default function SigninComponent() {
           ToastsStore.success(result.message);
           setLoading(false);
           setIsSessionAvailable(true);
-          history.push("profile");
+          history.push("account");
         } else {
           ToastsStore.error(result.message);
           setLoading(false);
