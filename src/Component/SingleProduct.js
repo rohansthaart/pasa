@@ -10,15 +10,17 @@ import {cartContext} from '../Context/useCart'
 function SingleProduct(props) {
 
   const [cardItem,setCardItem]= useContext(cartContext);
-
+  const name =props.name
+  const title = name.substring(0,40);
   return (
+    
     <div className="card" style={{ width: "190px", height: "350px" }}>
       <img
         src={props.url}
         style={{ objectFit: "cover", height: "188px", width: "188px" }}
       />
       <div>
-        <h6 style={{ marginLeft: "6px", textAlign: "left" }}>{props.name}</h6>
+        <h6 style={{ marginLeft: "6px", textAlign: "left" }}>{title}...</h6>
       </div>
       <div className="row">
         <div
@@ -27,12 +29,11 @@ function SingleProduct(props) {
         >
           <h4>Rs.{props.price}</h4>
 
-          <h7> -25%</h7>
+          <h7> {props.discount}</h7>
         </div>
         <div className="col-4">
-          <button onClick={e=>setCardItem(prev=>[...prev,{img:props.url,descripton:props.name,price:props.price,quantity:1}])}>
-          <ShoppingCartIcon fontSize="large" color="error"/>
-          </button>
+          
+          <ShoppingCartIcon fontSize="large" color="error"  onClick={e=>setCardItem(prev=>[...prev,{img:props.url,descripton:props.name,price:props.price,quantity:1}])}/>
         </div>
       </div>
       <div>

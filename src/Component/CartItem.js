@@ -6,7 +6,7 @@ import DeleteIcon from "@material-ui/icons/Delete";
 
 function CartItem(props) {
   const [cardItem, setCardItem] = useContext(cartContext);
-
+  const titles = (props.title).substring(0,25);
   return (
     <tbody>
       <tr>
@@ -15,7 +15,7 @@ function CartItem(props) {
         </th>
 
         <td>
-          <em>{props.title}</em>
+          <em>{titles}...</em>
         </td>
         <td>
           {props.quantity} x Rs.{props.price}
