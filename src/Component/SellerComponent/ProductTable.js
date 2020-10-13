@@ -30,7 +30,12 @@ export default function ProductTable({ products }) {
             <tr key={index}>
               <th scope="row">{index + 1}</th>
               <td>
-                <img src={product.image} width={100} height={100} alt="image" />
+                <img
+                  src={product.image[0]}
+                  width={100}
+                  height={100}
+                  alt="image"
+                />
               </td>
               <td>{product.name}</td>
               <td>{product.category}</td>
