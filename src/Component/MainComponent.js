@@ -13,8 +13,16 @@ import SellerVerification from "./SellerComponent/SellerVerificationScreen";
 import PrivateSellerRoute from "./SellerComponent/PrivateSellerComponent";
 import PrivateUserRoute from "./PrivateUserRoute";
 import "./Main.css";
+import {useProduct} from '../Context/ProductContext'
+import DetailedItem from "./DetailedItem";
+import Products from "./Products";
+import SingleProduct from "./SingleProduct";
+import detailedSingleProduct from "./detailedSingleProduct";
 
 export default function MainComponent(props) {
+  const products = useProduct().products
+  console.log(products); 
+
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     setTimeout(() => {
@@ -31,7 +39,6 @@ export default function MainComponent(props) {
     return (
       <div>
         <Header />
-
         <Switch location={props.location}>
           <Route path="/" exact component={Home} />
           <Route path="/login" component={Login} />
@@ -40,6 +47,7 @@ export default function MainComponent(props) {
           <Route path="/user-verify" component={UserVerificationScreen} />
           <Route path="/seller-verify" component={SellerVerification} />
           <Route path="/profile" component={Profile} />
+          <Route path="/product/:id" component={detailedSingleProduct}/>
           <PrivateSellerRoute path="/merchant" exact component={SellerEntry} />
         </Switch>
       </div>

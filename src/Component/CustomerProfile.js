@@ -12,7 +12,6 @@ import {useUser} from "../Context/UserContext";
 
 function CustomerProfile() {
   const user = useUser().user
-
   
   return (
     <div className="row ">

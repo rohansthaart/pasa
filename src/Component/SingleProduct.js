@@ -11,7 +11,7 @@ function SingleProduct(props) {
 
   const [cardItem,setCardItem]= useContext(cartContext);
   const name =props.name
-  const title = name.substring(0,40);
+  const title = name.substring(0,35);
   return (
     
     <div className="card" style={{ width: "190px", height: "350px" }}>

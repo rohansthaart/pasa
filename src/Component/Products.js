@@ -14,7 +14,7 @@ function Products() {
           <SingleProduct
             name={product.name}
             price={product.unitPrice}
-            url={product.image}
+            url={product.image[1]}
             discount = {product.discount}
           /> 
           </div>

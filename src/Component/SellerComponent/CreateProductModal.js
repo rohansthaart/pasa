@@ -119,9 +119,17 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
                   as="select"
                   onChange={(e) => setCategory(e.target.value)}
                 >
-                  <option>Clothes</option>
-                  <option>Gadgets</option>
-                  <option>Grocery</option>
+                  <option>Mobiles</option>
+                  <option>Electronics</option>
+                  <option>Home & Kitchen</option>
+                  <option>Beauty & Fragrances </option>
+                  <option>Accessories</option>
+                  <option>Men's Fashion</option>
+                  <option>Women's Fashion</option>
+                  <option>Music Instrument</option>
+                  <option>Sports & Fitness</option>
+                  <option>Groceries</option>
+                  <option>Others</option>
                 </Form.Control>
               </Col>
               <Col>
@@ -130,25 +138,97 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
                   as="select"
                   onChange={(e) => setSubCategory(e.target.value)}
                 >
-                  {category === "Gadgets" ? (
+                  {category === "Mobiles" ? (
                     <>
-                      <option>Mobile</option>
-                      <option>TV</option>
-                      <option>Laptop</option>
-                      <option>Smart Watch</option>
+                      <option>SmartPhone</option>
+                      <option>Tablets</option>
+                      <option>Accessories</option>
+                      <option>Wearables</option>
+                      <option>Others</option>
                     </>
-                  ) : category === "Grocery" ? (
+                  ) : category === "Electronics" ? (
                     <>
-                      <option>Vegetables</option>
-                      <option>Fruites</option>
-                      <option>Foods</option>
+                      <option>Televisions</option>
+                      <option>Desktop</option>
+                      <option>Projectors</option>
+                      <option>Laptops</option>
+                      <option>Cameras</option>
+                      <option>Video Games</option>
+                      <option>Home audio & videos</option>
+                      <option>IT equipment</option>
+                      <option>Camcorders</option>
+                      <option>Others</option>
                     </>
-                  ) : (
+                  ): category === "Home & Kitchen" ? (
                     <>
-                      <option>Inner Wear</option>
-                      <option>Outer Wear</option>
-                      <option>Summer Wear</option>
-                      <option>Winter Wear</option>
+                      <option>Home Appliances</option>
+                      <option>Bedding</option>
+                      <option>Home Decor</option>
+                      <option>Kitchen Utensils</option>
+                      <option>Furniture</option>
+                      <option>Household</option>
+                      <option>Kichen Appliances</option>
+                      <option>Tools & Home Improvement</option>
+                      <option>Others</option>
+                    </>
+                  ): category === "Beauty & Fragrances" ? (
+                    <>
+                      <option>Fragrances</option>
+                      <option>Grooming Appliances</option>
+                      <option>Skin & Hair Care</option>
+                      <option>Makeup</option>
+                      <option>Health & Fitness</option>
+                      <option>Others</option>
+                    </>
+                  ): category === "Accessories" ? (
+                    <>
+                      <option>Sunglasses</option>
+                      <option>Watches</option>
+                      <option>Necklaces</option>
+                      <option>Others</option>
+                      
+                    </>
+                  ) : category === "Men's Fashion" ? (
+                    <>
+                      <option>Clothing</option>
+                      <option>Men's Bags</option>
+                      <option>Shoes</option>
+                      <option>Underwear</option>
+                      <option>Others</option>
+                    </>
+                  ): category === "Women's Fashion" ? (
+                    <>
+                      <option>Clothing</option>
+                      <option>Women's Bags</option>
+                      <option>Shoes</option>
+                      <option>Underwear</option>
+                      <option>Traditional Clothing</option>
+                      <option>Others</option>
+                    </>
+                  ): category === "Music Instrument" ? (
+                    <>
+                      <option>Guitar</option>
+                      <option>Keyboard</option>
+                      <option>Piano</option>
+                      <option>Drums</option>
+                      <option>Flute</option>
+                      <option>Violin</option>
+                      <option>Saxophone</option>
+                      <option>Others</option>
+                    </>
+                  ): category === "Groceries" ? (
+                    <>
+                      <option>Beverages</option>
+                      <option>Breakfast & Snacks</option>
+                      <option>Chocolates</option>
+                      <option>Cooking Ingredients</option>
+                      <option>Wines,Beers & Spirits</option>
+                      <option>Others</option>
+                    </>
+                  ):(
+                    <>
+                      
+                      <option>Others</option>
                     </>
                   )}
                 </Form.Control>
