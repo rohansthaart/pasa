@@ -3,7 +3,7 @@ import StarIcon from "@material-ui/icons/Star";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import StarHalfIcon from "@material-ui/icons/StarHalf";
 import "./SingleProduct.css";
-
+import {Link} from "react-router-dom";
 
 import {cartContext} from '../Context/useCart'
 
@@ -13,7 +13,7 @@ function SingleProduct(props) {
   const name =props.name
   const title = name.substring(0,35);
   return (
-    
+    <Link to={`/product/${props.id}`}>
     <div className="card" style={{ width: "190px", height: "350px" }}>
       <img
         src={props.url}
@@ -43,7 +43,7 @@ function SingleProduct(props) {
         <StarIcon fontSize="small" color="error" />
         <StarHalfIcon fontSize="small" color="error" />
       </div>
-    </div>
+    </div></Link>
   );
 }
 

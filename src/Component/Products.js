@@ -12,6 +12,7 @@ function Products() {
           {products.map(product=>  
           <div className="col">
           <SingleProduct
+            id={product._id}
             name={product.name}
             price={product.unitPrice}
             url={product.image[1]}

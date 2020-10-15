@@ -1,16 +1,18 @@
 import React,{useContext} from 'react'
-import {Link} from 'react-router-dom'
+import {useParams} from 'react-router-dom'
 import DetailedItem from './DetailedItem'
  import {useProduct} from '../Context/ProductContext'
-function detailedSingleProduct() {
-    const products = useProduct()
-   
+function DetailedSingleProduct() {
+   const {products} = useProduct();
+   const {id} = useParams();
+   const selectedProduct = products.filter(product => (product._id === id));
     return (
         <div>
+        
             <DetailedItem/>
-           <Link to = {`/product/id`}>a</Link>
+         
         </div>
     )
 }
 
-export default detailedSingleProduct
+export default DetailedSingleProduct
