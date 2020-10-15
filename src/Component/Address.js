@@ -12,9 +12,6 @@ import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined'
 
 
 function Address() {
-
-  
-
     const [open, setOpen] = React.useState(false);
 
     const handleClickOpen = () => {
