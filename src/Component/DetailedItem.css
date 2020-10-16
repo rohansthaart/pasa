@@ -6,6 +6,7 @@
 ul.ba {
   list-style-type: none;
   margin-left: 15%;
+  overflow: hidden;
 }
 
 .col-sm-1 {
@@ -36,18 +37,11 @@ ul.ba {
 
 .slide-image {
   object-fit: contain;
-  width: 40vw;
+  width: 35vw;
   height: 60vh;
 }
 .discount {
   text-decoration-line: line-through;
-}
-@media (max-width: 1440px) {
-  li {
-    list-style-type: none;
-    margin-left: 15%;
-    float: left;
-  }
 }
 
 @media (max-width: 988px) {

@@ -3,7 +3,8 @@ import DetailedItem from "./DetailedItem";
 export default function ShopComponent() {
   return (
     <div>
-      <DetailedItem />
+      this is ShopComponent
+      
     </div>
   );
 }

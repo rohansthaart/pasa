@@ -17,7 +17,7 @@ import {useProduct} from '../Context/ProductContext'
 import DetailedItem from "./DetailedItem";
 import Products from "./Products";
 import SingleProduct from "./SingleProduct";
-import detailedSingleProduct from "./detailedSingleProduct";
+import DetailedSingleProduct from "./detailedSingleProduct";
 
 export default function MainComponent(props) {
   const products = useProduct().products
@@ -47,7 +47,7 @@ export default function MainComponent(props) {
           <Route path="/user-verify" component={UserVerificationScreen} />
           <Route path="/seller-verify" component={SellerVerification} />
           <Route path="/profile" component={Profile} />
-          <Route path="/product/:id" component={detailedSingleProduct}/>
+          <Route path="/product/:id" exact component={DetailedSingleProduct}/>
           <PrivateSellerRoute path="/merchant" exact component={SellerEntry} />
         </Switch>
       </div>

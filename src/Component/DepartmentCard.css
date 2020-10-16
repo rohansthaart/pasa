@@ -24,8 +24,7 @@ p {
 .property-card {
   height: 18em;
   width: 14em;
-  display: -webkit-box;
-  display: -ms-flexbox;
+
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;

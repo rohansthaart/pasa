@@ -4,7 +4,7 @@ export default function LineChart() {
   const series = [
     {
       name: "series-1",
-      data: [30, 40, 45, 50, 49, 60, 70, 91],
+      data: [30, 40, 45, 30, 49, 60, 70, 91],
     },
   ];
   const options = {
@@ -12,7 +12,7 @@ export default function LineChart() {
       id: "basic-bar",
     },
     xaxis: {
-      categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998],
+      categories: ['Aug', 'Sep', 'Oct','Nov','Dec','Jan','Feb','Mar'],
     },
   };
   return (
@@ -21,7 +21,7 @@ export default function LineChart() {
         options={options}
         series={series}
         type="area"
-        width="480"
+        width="500"
         height="265"
       />
     </div>
