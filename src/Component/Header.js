@@ -21,17 +21,7 @@ function Header() {
           Store
         </a>
 
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarsExample04"
-          aria-controls="navbarsExample04"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
+     
 
         <div className="collapse navbar-collapse" id="navbarsExample04">
           <ul className="navbar-nav mr-auto">
@@ -93,11 +83,10 @@ function Header() {
               </div>
             </li>
           </ul>
-          <form className="form-inline my-2 my-md-0">
-            <input className="form-control" type="text" placeholder="Search" />
-          </form>
-
-          {isSessionAvailable ? (
+        
+            <input className="form-control search" type="text" placeholder="Search" aria-label='Search'/>
+        </div>
+        {isSessionAvailable ? (
             <AvatarLogin />
           ) : (
             <Link to="/login" className="nav-link">
@@ -105,7 +94,18 @@ function Header() {
             </Link>
           )}
           <Cart />
-        </div>
+
+          <button
+          className="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarsExample04"
+          aria-controls="navbarsExample04"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
       </nav>
       <br />
     </div>

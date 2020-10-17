@@ -1,16 +1,19 @@
-import React, { Component } from "react";
+import React, { Component ,useState} from "react";
+import Avatar from '@material-ui/core/Avatar';
+import Rating from '@material-ui/lab/Rating';
 import "./Review.css";
 function Review(props) {
+  const [value, setValue] = useState(2.5);
   return (
+  
     <div class="review row">
-      <img src={props.url} alt="User 1" class="review__photo " />
-      <div class="review__text col-11">
+      <Avatar>{((props.email).substring(0,1)).toUpperCase()}</Avatar>
+      <div class="review__text col-11" style={{whiteSpace: 'pre-wrap' }}>
         {props.review}
         <div class="review-person">
           <div class="review-info">
             <p class="review-info-name">
-              {props.name} <br />
-              {props.email} <div class="review__rating">7.8</div>
+               <div class="review__rating"><Rating name="half-rating-read" size='small' value={value} precision={0.5} readOnly  /></div>{props.email}
             </p>
           </div>
         </div>

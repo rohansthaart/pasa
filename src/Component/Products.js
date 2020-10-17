@@ -15,7 +15,7 @@ function Products() {
             id={product._id}
             name={product.name}
             price={product.unitPrice}
-            url={product.image[1]}
+            url={product.image[0]}
             discount = {product.discount}
           /> 
           </div>

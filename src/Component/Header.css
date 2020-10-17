@@ -33,3 +33,11 @@
   padding: 0;
   margin-bottom: 0;
 }
+
+.search {
+  border-radius: 20px;
+}
+.search::placeholder {
+  padding-left: 1rem;
+  font-size: 1.2rem;
+}

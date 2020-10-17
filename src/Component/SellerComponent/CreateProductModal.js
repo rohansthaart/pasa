@@ -17,7 +17,8 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
   const [localUrl, setLocalUrl] = useState("");
   const [loading, setLoading] = useState(false);
   const [uploadLoading, setUploadLoading] = useState(false);
-
+  const [subSubCategory,setSubSubCategory]=useState("");
+  const [brand, setBrand]= useState("");
   const addPic = (remoteUrl) => {
     setImage((prev) => [...prev, remoteUrl]);
   };
@@ -54,6 +55,8 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
         unitPrice: price,
         category,
         subCategory,
+        subSubCategory,
+        brand,
         discount,
         image,
         description,
@@ -119,17 +122,19 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
                   as="select"
                   onChange={(e) => setCategory(e.target.value)}
                 >
-                  <option>Mobiles</option>
-                  <option>Electronics</option>
-                  <option>Home & Kitchen</option>
-                  <option>Beauty & Fragrances </option>
-                  <option>Accessories</option>
-                  <option>Men's Fashion</option>
-                  <option>Women's Fashion</option>
-                  <option>Music Instrument</option>
-                  <option>Sports & Fitness</option>
-                  <option>Groceries</option>
-                  <option>Others</option>
+                   <option>Other</option>
+                  <option>Women</option>
+                  <option>Men</option>
+                  <option>Electrionics</option>
+                  <option>Toys</option>
+                  <option>Home</option>
+                  <option>Beauty</option>
+                  <option>Kids</option>
+                  <option>Vintage</option>
+                  <option>Sports</option>
+                  <option>Handmade</option>
+                  <option>Digital items</option>
+                 
                 </Form.Control>
               </Col>
               <Col>
@@ -138,46 +143,57 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
                   as="select"
                   onChange={(e) => setSubCategory(e.target.value)}
                 >
-                  {category === "Mobiles" ? (
+                  {category === "Women" ? (
                     <>
-                      <option>SmartPhone</option>
+                      <option>Women's Handbags</option>
+                      <option>Shoes</option>
+                      <option>Athletic Apparel</option>
+                      <option>Tops & Blouses</option>
+                      <option>Jewelry</option>
+                      <option>Women's Accessories</option>
+                      <option>Dresses</option>
+                      <option>Sweaters</option>
+                      <option>Coats & Jackets</option>
+                      <option>Jeans</option>
+                    </>
+                  ) : category === "Men" ? (
+                    <>
+                      <option>Men's Accessories</option>
+                      <option>Shoes</option>
+                      <option>Athletic Apparel</option>
+                      <option>Tops</option>
+                      <option>Shorts</option>
+                      <option>Jeans</option>
+                      <option>Sweaters & Hoodies</option>
+                      <option>Coats & Jackets</option>
+                      <option>Others</option>
+                    </>
+                  ): category === "Electrionics" ? (
+                    <>
+                      <option>Cell Phones & Accessories</option>
+                      <option>Computers & Laptops</option>
                       <option>Tablets</option>
-                      <option>Accessories</option>
-                      <option>Wearables</option>
+                      <option>Video Games & Consoles</option>
+                      <option>Werables</option>
+                      <option>Headphones</option>
+                      <option>Camera & Photography</option>
+                      <option>Media</option>
+                      <option>Speakers & Audio</option>
+                      <option>TV & Videos</option>
                       <option>Others</option>
                     </>
-                  ) : category === "Electronics" ? (
+                  ): category === "Toys" ? (
                     <>
-                      <option>Televisions</option>
-                      <option>Desktop</option>
-                      <option>Projectors</option>
-                      <option>Laptops</option>
-                      <option>Cameras</option>
-                      <option>Video Games</option>
-                      <option>Home audio & videos</option>
-                      <option>IT equipment</option>
-                      <option>Camcorders</option>
-                      <option>Others</option>
-                    </>
-                  ): category === "Home & Kitchen" ? (
-                    <>
-                      <option>Home Appliances</option>
-                      <option>Bedding</option>
-                      <option>Home Decor</option>
-                      <option>Kitchen Utensils</option>
-                      <option>Furniture</option>
-                      <option>Household</option>
-                      <option>Kichen Appliances</option>
-                      <option>Tools & Home Improvement</option>
-                      <option>Others</option>
-                    </>
-                  ): category === "Beauty & Fragrances" ? (
-                    <>
-                      <option>Fragrances</option>
-                      <option>Grooming Appliances</option>
-                      <option>Skin & Hair Care</option>
-                      <option>Makeup</option>
-                      <option>Health & Fitness</option>
+                      <option>Collectibles & Hobbies</option>
+                      <option>Action Figures & Accessories</option>
+                      <option>Dolls & Accessories</option>
+                      <option>Vintage & Antique Toys</option>
+                      <option>Trading Cards</option>
+                      <option>Stuffed Animals & Plush</option>
+                      <option>Building Toys</option>
+                      <option>Arts & Crafts</option>
+                      <option>Games & Puzzles</option>
+                      <option>Remote Control Toys & Vehicles</option>
                       <option>Others</option>
                     </>
                   ): category === "Accessories" ? (
@@ -188,13 +204,20 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
                       <option>Others</option>
                       
                     </>
-                  ) : category === "Men's Fashion" ? (
+                  ) : category === "Home" ? (
                     <>
-                      <option>Clothing</option>
-                      <option>Men's Bags</option>
-                      <option>Shoes</option>
-                      <option>Underwear</option>
+                      <option>Kitchen & Dining</option>
+                      <option>Home Decor</option>
+                      <option>Seasonal Decor</option>
+                      <option>Home Appliances</option>
+                      <option>Bedding</option>
+                      <option>Storage & Organization</option>
+                      <option>Cleaning Supplies</option>
+                      <option>Artwork</option>
+                      <option>Furniture</option>
+                      <option>Bath</option>
                       <option>Others</option>
+                      
                     </>
                   ): category === "Women's Fashion" ? (
                     <>
@@ -234,6 +257,47 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
                 </Form.Control>
               </Col>
             </Row>
+            
+            <Row style={{ marginTop: 10 }}>
+              <Col>
+                <Form.Label>Select Sub-Sub-Category</Form.Label>
+                <Form.Control
+                  as="select"
+                  onChange={(e) => setSubSubCategory(e.target.value)}
+                >
+                  <option>Mobiles</option>
+                  <option>Electronics</option>
+                  <option>Home & Kitchen</option>
+                  <option>Beauty & Fragrances </option>
+                  <option>Accessories</option>
+                  <option>Men's Fashion</option>
+                  <option>Women's Fashion</option>
+                  <option>Music Instrument</option>
+                  <option>Sports & Fitness</option>
+                  <option>Groceries</option>
+                  <option>Others</option>
+                </Form.Control>
+              </Col>
+              <Col>
+                <Form.Label>Select Brand</Form.Label>
+                <Form.Control
+                  as="select"
+                  onChange={(e) => setBrand(e.target.value)}
+                >
+                  <option>Mobiles</option>
+                  <option>Electronics</option>
+                  <option>Home & Kitchen</option>
+                  <option>Beauty & Fragrances </option>
+                  <option>Accessories</option>
+                  <option>Men's Fashion</option>
+                  <option>Women's Fashion</option>
+                  <option>Music Instrument</option>
+                  <option>Sports & Fitness</option>
+                  <option>Groceries</option>
+                  <option>Others</option>
+                </Form.Control>
+              </Col>
+              </Row>     
 
             <Form.Group controlId="textarea" style={{ marginTop: 10 }}>
               <Form.Label>Enter Description</Form.Label>

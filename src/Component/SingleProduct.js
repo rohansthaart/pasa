@@ -1,14 +1,12 @@
 import React ,{useState,useContext} from "react";
-import StarIcon from "@material-ui/icons/Star";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-import StarHalfIcon from "@material-ui/icons/StarHalf";
+import Rating from '@material-ui/lab/Rating';
 import "./SingleProduct.css";
 import {Link} from "react-router-dom";
-
 import {cartContext} from '../Context/useCart'
 
 function SingleProduct(props) {
-
+  const [value, setValue] = React.useState(0);
   const [cardItem,setCardItem]= useContext(cartContext);
   const name =props.name
   const title = name.substring(0,35);
@@ -35,13 +33,10 @@ function SingleProduct(props) {
           <ShoppingCartIcon fontSize="large" color="error"  onClick={e=>setCardItem(prev=>[...prev,{img:props.url,descripton:props.name,price:props.price,quantity:1}])}/>
         </div>
       </div>
-      <div>
-        <StarIcon fontSize="small" color="error" />
-        <StarIcon fontSize="small" color="error" />
-        <StarIcon fontSize="small" color="error" />
-        <StarIcon fontSize="small" color="error" />
-        <StarHalfIcon fontSize="small" color="error" />
-      </div>
+      
+        
+        <Rating name="read-only" value={value} readOnly />
+      
     </div>
   );
 }
