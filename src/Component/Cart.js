@@ -6,9 +6,12 @@ import "./Cart.css";
 import CartItem from "./CartItem";
 import { cartContext } from "../Context/useCart";
 export default function CustomizedBadges() {
-  let sum = 0;
+  var sum = 0;
   const [cardItem, setCardItem] = useContext(cartContext);
-  sum = cardItem.map((item) => parseInt(item.price) + sum);
+ // sum = cardItem.map((item) => parseInt(item.price) + sum);
+  cardItem.forEach(item=>{
+    sum = sum + (item.quantity * parseInt(item.price))
+  })
   return (
     <div className="dropdown">
       <div

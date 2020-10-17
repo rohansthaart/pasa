@@ -6,12 +6,31 @@ import "./SingleProduct.css";
 import {Link} from "react-router-dom";
 
 import {cartContext} from '../Context/useCart'
+import CartItem from "./CartItem";
 
 function SingleProduct(props) {
 
   const [cardItem,setCardItem]= useContext(cartContext);
   const name =props.name
   const title = name.substring(0,35);
+
+  const addToCart = () => {
+    if(cardItem.some(item => item.id === props.id)){
+     let item = cardItem.find(item=>item.id === props.id);
+     item.quantity = item.quantity + 1;
+      const index = cardItem.indexOf(item);
+      const virtualCart = [...cardItem];
+      const removedItem = virtualCart.splice(index, 1);
+      const newCart = cardItem.filter(
+        (item) => item.id !== removedItem[0].id
+      );
+      newCart.push(item);
+      setCardItem(newCart);
+    }
+    else {
+      setCardItem(prev=>[...prev,{id:props.id,img:props.url,descripton:props.name,price:props.price,quantity:1}])
+    }
+  }
   return (
     <div className="card single-card" style={{ width: "180px", height: "310px" }}>
       <Link to={`/product/${props.id}`}><img
@@ -32,7 +51,7 @@ function SingleProduct(props) {
         </div>
         <div className="col-4">
           
-          <ShoppingCartIcon fontSize="large" color="error"  onClick={e=>setCardItem(prev=>[...prev,{img:props.url,descripton:props.name,price:props.price,quantity:1}])}/>
+          <ShoppingCartIcon fontSize="large" color="error"  onClick={addToCart}/>
         </div>
       </div>
       <div>
