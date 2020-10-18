@@ -20,12 +20,13 @@ const [loading, setLoading] = useState(false);
          "Content-Type":"application/json",
        },
        body:JSON.stringify({
+         shippingAddress:{
          region:region,
          city: city,
          area: area,
          address:address,
          
-       }),
+       }}),
      })
      .then((res)=> res.json())
      .then((result)=>{

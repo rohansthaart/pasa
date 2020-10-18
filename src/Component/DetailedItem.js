@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from 'axios'
 import "./DetailedItem.css";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import IndeterminateCheckBoxOutlinedIcon from "@material-ui/icons/IndeterminateCheckBoxOutlined";
@@ -15,8 +16,13 @@ import Specification from "./Specification";
 import HomeWorkOutlinedIcon from '@material-ui/icons/HomeWorkOutlined';
 import VerifiedUserOutlinedIcon from '@material-ui/icons/VerifiedUserOutlined';
 import Footer from "./Footer"
-import Reviews from "./Review";
+import Review from "./Review";
+
+
+
 function DetailedItem(props) {
+
+ const [addReview,setAddReview]= useState('');
   const [value, setValue] = React.useState(2);
   const [hover, setHover] = React.useState(-1);
   const {products} = useProduct();
@@ -26,6 +32,30 @@ function DetailedItem(props) {
   const detail = (props.description).substring(0,485);
   const [count, setCount] = useState(1);
   const [description, setDescription] = useState("specification");
+  const [loading, setLoading] = useState(false);
+  const reviews = props.review;
+
+  const uploadReview = () => {
+    setLoading(true);
+    fetch(`/products/${id}/addReview`,{
+      method:"PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+  
+    body: JSON.stringify({
+     review: addReview,
+     rating :value,
+    
+     
+    })
+   
+   
+  
+    });  
+
+  }
+
   
   const labels = {
     0.5: 'Useless',
@@ -39,7 +69,6 @@ function DetailedItem(props) {
     4.5: 'Excellent',
     5: 'Excellent+',
   };
-
 
   return (
     <div className="detail-specification container">
@@ -210,15 +239,16 @@ function DetailedItem(props) {
           />
         ) : (
          <div>
-           <Reviews
-                email='rohanstha000@gmail.com'
-                review='We offer a free return&change service, you can buy with confidence.
-                Soft Material - This Striped Sweatshirt is made of 65% Cotton & 35% Polyester. Good Elasticity, Soft, and Comfortable.
-                Fashion Design - Long Sleeve, Pullover Style with Drawstring, Front Pocket, Hooded, Perfect Match with your favorite shorts, boots, jeans, or leggings. It is so classic and cute. It is an all-around win for your wardrobe.'
-              />
+           {reviews.map(rev=> <Review
+               email={rev.reviewedBy}
+               revi={rev.review}
+               rating={rev.rating}
+             />
+           )}
+          
               <div>
                 <h4>Leave a review</h4>
-             <input className='form-control form-control-md ' type='text '/>
+             <input className='form-control form-control-md ' type='text' onChange={(e)=>setAddReview(e.target.value)}/>
                <Rating 
                  name="hover-feedback"
                  value={value}
@@ -231,7 +261,7 @@ function DetailedItem(props) {
           }}
         /> {value !== null && <Box ml={2}>{labels[hover !== -1 ? hover : value]}</Box>}
         <br/>
-             <button className='btn btn-primary' onClick='submit'>submit</button>
+             <button className='btn btn-primary' onClick={()=> uploadReview()}>submit</button>
              </div>
                 </div>
           
