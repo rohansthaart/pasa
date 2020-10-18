@@ -21,7 +21,7 @@ import Review from "./Review";
 
 
 function DetailedItem(props) {
-
+ 
  const [addReview,setAddReview]= useState('');
   const [value, setValue] = React.useState(2);
   const [hover, setHover] = React.useState(-1);
@@ -34,7 +34,7 @@ function DetailedItem(props) {
   const [description, setDescription] = useState("specification");
   const [loading, setLoading] = useState(false);
   const reviews = props.review;
-
+  
   const uploadReview = () => {
     setLoading(true);
     fetch(`/products/${id}/addReview`,{
@@ -55,8 +55,9 @@ function DetailedItem(props) {
     });  
 
   }
-
-  
+  const reviewer = reviews.length;
+  const avgRating = reviews.map(rev=>rev.rating)
+ console.log(avgRating)
   const labels = {
     0.5: 'Useless',
     1: 'Useless+',
@@ -207,7 +208,7 @@ function DetailedItem(props) {
               </div>
               <div className="col">
                 <h7>Ship on Time</h7>
-                <br/><br/>
+                <br/>
                 <h3>100%</h3>
               </div>
               <div className="col">
@@ -239,11 +240,15 @@ function DetailedItem(props) {
           />
         ) : (
          <div>
-           {reviews.map(rev=> <Review
+           {reviews.map(rev=> <> <Review
                email={rev.reviewedBy}
                revi={rev.review}
                rating={rev.rating}
+               
              />
+            
+            
+             </>
            )}
           
               <div>

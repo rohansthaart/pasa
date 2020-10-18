@@ -7,7 +7,7 @@ function DetailedSingleProduct() {
    const {id} = useParams();
    const selectedProduct = products.filter(product => (product._id === id));
 
-   console.log(selectedProduct);
+
     return (
       <div>  
       {selectedProduct.map(product => <DetailedItem name={product.name} id={product._id} description={product.description}  price={product.unitPrice} discount={product.discount} seller={product.postedBy.fullName}  review={product.review}/>)

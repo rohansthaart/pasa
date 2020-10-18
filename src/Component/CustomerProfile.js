@@ -12,6 +12,8 @@ import {useUser} from "../Context/UserContext";
 
 function CustomerProfile() {
   const user = useUser().user
+ 
+  console.log(user.email);
   
   return (
     <div className="row ">
