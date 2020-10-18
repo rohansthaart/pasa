@@ -10,7 +10,7 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
   const [price, setPrice] = useState("");
   const [discount, setDiscount] = useState("");
   const [category, setCategory] = useState("Clothes");
-  const [subCategory, setSubCategory] = useState("Inner Wear");
+  const [subCategory, setSubCategory] = useState("Others");
   const [description, setDescription] = useState("");
   const [pic, setPic] = useState(null);
   const [image, setImage] = useState([]);
