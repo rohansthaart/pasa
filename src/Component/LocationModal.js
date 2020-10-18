@@ -20,13 +20,11 @@ const [loading, setLoading] = useState(false);
          "Content-Type":"application/json",
        },
        body:JSON.stringify({
-         shippingAddress:{
          region:region,
          city: city,
          area: area,
          address:address,
-         
-       }}),
+       }),
      })
      .then((res)=> res.json())
      .then((result)=>{
@@ -41,6 +39,7 @@ const [loading, setLoading] = useState(false);
        ToastsStore.error(err.message);
        setLoading(false);
      });
+   
    };
 
     return (
@@ -61,7 +60,9 @@ const [loading, setLoading] = useState(false);
                   as="select"
                   onChange={(e) => setRegion(e.target.value)}
                 >
-                   <option>Other</option>
+                   <option>A</option>
+                   <option>B</option>
+                   <option>C</option>
                   
                 </Form.Control>
             
@@ -72,7 +73,7 @@ const [loading, setLoading] = useState(false);
                   as="select"
                   onChange={(e) => setCity(e.target.value)}
                 >
-                  {region === "Women" ? (
+                  {/* {region === "Women" ? (
                     <>
                       
                       <option>Jeans</option>
@@ -92,7 +93,10 @@ const [loading, setLoading] = useState(false);
                       
                       <option>Others</option>
                     </>
-                  )}
+                  )} */}
+                  <option>x</option>
+                  <option>y</option>
+                  <option>z</option>
                 </Form.Control>
             
            
