@@ -1,4 +1,4 @@
-import React ,{useState,useContext} from "react";
+import React ,{useState,useContext,useEffect} from "react";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import Rating from '@material-ui/lab/Rating';
 import "./SingleProduct.css";
@@ -9,6 +9,7 @@ import CartItem from "./CartItem";
 function SingleProduct(props) {
   const [value, setValue] = React.useState(0);
   const [cardItem,setCardItem]= useContext(cartContext);
+
   const name =props.name
   const title = name.substring(0,35);
 
@@ -54,7 +55,7 @@ function SingleProduct(props) {
       </div>
       
         
-        <Rating name="read-only" value={value} readOnly />
+        <Rating name="read-only" value={props.rating} readOnly />
       
     </div>
   );

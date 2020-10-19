@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import axios from 'axios'
 import "./DetailedItem.css";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
@@ -23,7 +24,7 @@ import Review from "./Review";
 function DetailedItem(props) {
  
  const [addReview,setAddReview]= useState('');
-  const [value, setValue] = React.useState(2);
+  const [value, setValue] = React.useState(0);
   const [hover, setHover] = React.useState(-1);
   const {products} = useProduct();
   const {id} = useParams();
@@ -32,11 +33,11 @@ function DetailedItem(props) {
   const detail = (props.description).substring(0,485);
   const [count, setCount] = useState(1);
   const [description, setDescription] = useState("specification");
-  const [loading, setLoading] = useState(false);
+  
   const reviews = props.review;
   
-  const uploadReview = () => {
-    setLoading(true);
+  const uploadReview = (e) => {
+    
     fetch(`/products/${id}/addReview`,{
       method:"PUT",
       headers: {
@@ -49,15 +50,19 @@ function DetailedItem(props) {
     
      
     })
-   
-   
   
     });  
 
+setAddReview('')
+e.preventDefault()
   }
+
   const reviewer = reviews.length;
-  const avgRating = reviews.map(rev=>rev.rating)
- console.log(avgRating)
+  const arrayRating = reviews.map(rev=>rev.rating)
+  const sumRating =  arrayRating.reduce((a, b) => a + b, 0)
+  const avgRating = (sumRating/reviewer).toFixed(1);
+  
+
   const labels = {
     0.5: 'Useless',
     1: 'Useless+',
@@ -120,12 +125,12 @@ function DetailedItem(props) {
           </div>
           {/*Revie*/}
           <Box component="fieldset" mb={3} borderColor="transparent">
-        <Typography component="legend">Review (0)</Typography>
+        <Typography component="legend">Review ({reviewer})</Typography>
         <Rating
           name="half-rating-read"
-          value={0}
+          value={avgRating}
           readOnly
-          precision={0.5}
+          precision={0.1}
           
         /> </Box>
           <div className="brand-name">Brand:</div>
@@ -253,7 +258,8 @@ function DetailedItem(props) {
           
               <div>
                 <h4>Leave a review</h4>
-             <input className='form-control form-control-md ' type='text' onChange={(e)=>setAddReview(e.target.value)}/>
+                <form onSubmit={(e)=> uploadReview()}>
+             <input className='form-control form-control-md' type='text' onChange={(e)=>setAddReview(e.target.value)}/>
                <Rating 
                  name="hover-feedback"
                  value={value}
@@ -266,7 +272,8 @@ function DetailedItem(props) {
           }}
         /> {value !== null && <Box ml={2}>{labels[hover !== -1 ? hover : value]}</Box>}
         <br/>
-             <button className='btn btn-primary' onClick={()=> uploadReview()}>submit</button>
+             <button className='btn btn-primary' type='submit'>submit</button>
+             </form>
              </div>
                 </div>
           
