@@ -4,6 +4,8 @@ import DepartmentCard from "./DepartmentCard";
 import AvatarLogin from "./AvatarLogin";
 import Cart from "./Cart";
 import Button from "./LoginButton";
+import TextField from '@material-ui/core/TextField';
+import Autocomplete from '@material-ui/lab/Autocomplete';
 import { Link } from "react-router-dom";
 import { useUser } from "../Context/UserContext";
 function Header() {

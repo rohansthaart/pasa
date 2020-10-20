@@ -55,7 +55,7 @@ function SingleProduct(props) {
       </div>
       
         
-        <Rating name="read-only" value={props.rating} readOnly />
+        <Rating name="read-only half-rating" precision={0.5} value={props.rating} readOnly />
       
     </div>
   );
