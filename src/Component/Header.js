@@ -4,18 +4,27 @@ import DepartmentCard from "./DepartmentCard";
 import AvatarLogin from "./AvatarLogin";
 import Cart from "./Cart";
 import Button from "./LoginButton";
+import {Form} from 'react-bootstrap'
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useUser } from "../Context/UserContext";
+import {useProduct} from "../Context/ProductContext";
 function Header() {
   const { isSessionAvailable } = useUser();
+  const {products} = useProduct();
   const [loading, setLoading] = useState(true);
+  const [result,setResult] = useState("");
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
     }, 1000);
   }, []);
+  const history = useHistory();
+  const goToResult = name => {
+    const searchId = products.filter(product => product.name.toUpperCase() === name.toUpperCase())[0]._id;
+    history.push(`/product/${searchId}`)
+  }
   return (
     <div class="header">
       <nav className="navbar navbar-expand-md navbar-light bg-light">
@@ -86,7 +95,31 @@ function Header() {
             </li>
           </ul>
         
-            <input className="form-control search" type="text" placeholder="Search" aria-label='Search'/>
+       <div style={{width:"80%"}}>
+       <Autocomplete
+        freeSolo
+        id="free-solo-2-demo"
+        disableClearable
+        options={products.map((option) => option.name)}
+        renderOption={option => (
+        <h4 onClick={()=>goToResult(option)}>{option}</h4>
+  )}
+      
+        renderInput={(params) => (
+          <div ref={params.InputProps.ref} className="searchInput">
+           
+          <Form>
+            <Form.Control type="text" {...params.inputProps} style={{width:"100%"}} placeholder="Search"/> 
+          </Form>
+          </div>
+        )}
+        value={result}
+        onChange={(event, newValue) => {
+          setResult(newValue);
+        }}
+      />
+    
+       </div>
         </div>
         {isSessionAvailable ? (
             <AvatarLogin />
@@ -113,5 +146,15 @@ function Header() {
     </div>
   );
 }
-
+const top100Films = [
+  { title: 'The Shawshank Redemption', year: 1994 },
+  { title: 'The Godfather', year: 1972 },
+  { title: 'The Godfather: Part II', year: 1974 },
+  { title: 'The Dark Knight', year: 2008 },
+  { title: '12 Angry Men', year: 1957 },
+  { title: "Schindler's List", year: 1993 },
+  { title: 'Pulp Fiction', year: 1994 },
+  { title: 'The Lord of the Rings: The Return of the King', year: 2003 },
+  { title: 'The Good, the Bad and the Ugly', year: 1966 },
+  { title: 'Fight Club', year: 1999 }]
 export default Header;

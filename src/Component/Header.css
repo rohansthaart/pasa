@@ -41,3 +41,9 @@
   padding-left: 1rem;
   font-size: 1.2rem;
 }
+.form-control {
+  width: 80%;
+}
+.searchInput {
+  widows: 100%;
+}
