@@ -12,7 +12,7 @@ export default function ProductTable({ products }) {
   };
   return (
     <div>
-      <table className="table table-hover">
+      <table className="table table-hover responsive">
         <thead className="thead-dark">
           <tr>
             <th scope="col">S.N.</th>

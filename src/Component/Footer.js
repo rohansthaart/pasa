@@ -6,7 +6,7 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 function Footer() {
     return (
-    <div className="site-footer">
+    <div className="site-footer sticky-buttom">
         <div className="container">
           <div className="row">
             <div className="col-sm-12 col-md-6">
@@ -16,12 +16,19 @@ function Footer() {
   
             <div className="col-xs-6 col-md-3">
               <h6>Categories</h6>
-              <ul className="footer-links">
-                <li><a href="">Colthing</a></li>
+              <ul className="footer-links category">
+                <li><a href="">Men's Fashion</a></li>
+                <li><a href="">Women's Fashion</a></li>
                 <li><a href="">Electronics</a></li>
                 <li><a href="">Accessories</a></li>
-                <li><a href="">Office</a></li>
-                <li><a href="">Kitchen</a></li>
+                <li><a href="">Home</a></li>
+                <li><a href="">Beauty</a></li>
+                <li><a href="">Kids</a></li>
+                <li><a href="">Sports</a></li>
+                <li><a href="">Grocery</a></li>
+                <li><a href="">Vintage</a></li>
+                <li><a href="">Handmade</a></li>
+                <li><a href="">Music Instrument</a></li>
                 <li><a href="">and more</a></li>
               </ul>
             </div>

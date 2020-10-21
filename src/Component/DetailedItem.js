@@ -19,7 +19,7 @@ import HomeWorkOutlinedIcon from "@material-ui/icons/HomeWorkOutlined";
 import VerifiedUserOutlinedIcon from "@material-ui/icons/VerifiedUserOutlined";
 import Footer from "./Footer";
 import Review from "./Review";
-
+import Alert from 'react-bootstrap/Alert'
 function DetailedItem(props) {
   const [addReview, setAddReview] = useState("");
   const [value, setValue] = React.useState(0);
@@ -54,7 +54,8 @@ function DetailedItem(props) {
     }).catch(err=>alert(err))
    }
    else {
-     alert("You are not logged in! Please login first to add review")
+    alert("You are not logged in! Please login first to add review")
+    
    }
   };
 

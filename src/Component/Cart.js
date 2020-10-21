@@ -35,8 +35,8 @@ export default function CustomizedBadges() {
               <thead>
                 <tr>
                   <th scope="col">Product</th>
-                  <th scope="col">Description</th>
-                  <th scope="col">QxP</th>
+                  <th scope="col" colspan="2">Description</th>
+                  <th scope="col" colspan="2"> </th>
                   <th scope="col">Remove</th>
                 </tr>
               </thead>

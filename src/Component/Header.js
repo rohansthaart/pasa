@@ -4,12 +4,15 @@ import DepartmentCard from "./DepartmentCard";
 import AvatarLogin from "./AvatarLogin";
 import Cart from "./Cart";
 import Button from "./LoginButton";
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+
 import {Form} from 'react-bootstrap'
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { Link, useHistory } from "react-router-dom";
 import { useUser } from "../Context/UserContext";
 import {useProduct} from "../Context/ProductContext";
+import { Category } from "@material-ui/icons";
 function Header() {
   const { isSessionAvailable } = useUser();
   const {products} = useProduct();
@@ -27,14 +30,25 @@ function Header() {
   }
   return (
     <div class="header">
-      <nav className="navbar navbar-expand-md navbar-light bg-light">
+      <nav className="navbar navbar-expand-md navbar-light bg-light ">
+      <button
+          className="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <ExpandMoreIcon/>
+        </button>
         <a className="navbar-brand" href="#">
-          Store
+         <img src='https://i.ibb.co/pR3sFH8/logo.png'/>
         </a>
 
-     
+    
 
-        <div className="collapse navbar-collapse" id="navbarsExample04">
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
               {/* <a className="nav-link" href="#">
@@ -50,7 +64,7 @@ function Header() {
               </Link>
             </li>
             
-            <li className="dropdown nav-item">
+            <li className="dropdown nav-item ">
               <a href="#" className="nav-link">
                 Departments
               </a>
@@ -118,43 +132,27 @@ function Header() {
           setResult(newValue);
         }}
       />
-    
-       </div>
+      
         </div>
         {isSessionAvailable ? (
             <AvatarLogin />
           ) : (
-            <Link to="/login" className="nav-link">
+            <Link to="/login" className="nav-link" style={{paddingLeft:'0px'}}>
               <Button />
             </Link>
           )}
           <Cart />
+       </div>
+    
+      
+          
+        
 
-          <button
-          className="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarsExample04"
-          aria-controls="navbarsExample04"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
       </nav>
-      <br />
+      
+     
     </div>
   );
 }
-const top100Films = [
-  { title: 'The Shawshank Redemption', year: 1994 },
-  { title: 'The Godfather', year: 1972 },
-  { title: 'The Godfather: Part II', year: 1974 },
-  { title: 'The Dark Knight', year: 2008 },
-  { title: '12 Angry Men', year: 1957 },
-  { title: "Schindler's List", year: 1993 },
-  { title: 'Pulp Fiction', year: 1994 },
-  { title: 'The Lord of the Rings: The Return of the King', year: 2003 },
-  { title: 'The Good, the Bad and the Ugly', year: 1966 },
-  { title: 'Fight Club', year: 1999 }]
+
 export default Header;

@@ -133,7 +133,6 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
                   <option>Vintage</option>
                   <option>Sports</option>
                   <option>Handmade</option>
-                  <option>Digital items</option>
                   <option>Music Instrument</option>
                   <option>Groceries</option>
                 </Form.Control>
@@ -288,15 +287,27 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
                       <option>Others</option>
                       
                     </>
-                  ): category === "Others" ? (
+                  ): category === "Music Instrument" ? (
                     <>
-                      <option>Office Supplies</option>
-                      <option>Daily & Travel Items</option>
-                      <option>Books</option>
-                      <option>Automotive</option>
-                      <option>Musical Instrument</option>
-                      <option>Pet Supplies</option>
-                      <option>Magazines</option>
+                      <option>Guitar</option>
+                      <option>Paino</option>
+                      <option>Violin</option>
+                      <option>Drums</option>
+                      <option>Flute</option>
+                      <option>Tabala</option>
+                      <option>Madal</option>
+                      <option>Others</option>
+                      
+                    </>
+                  ): category === "Handmade" ? (
+                    <>
+                      <option>Pashmina</option>
+                      <option>Khukuri</option>
+                      <option>Clay Products</option>
+                      <option>Handwoven Nepali Dhaka</option>
+                      <option>Lokta Paper Products</option>
+                      <option>Nepali Jewelry</option>
+                      <option>Thanka Paintings</option>
                       <option>Others</option>
                       
                     </>

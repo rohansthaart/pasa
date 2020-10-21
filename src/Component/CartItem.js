@@ -14,12 +14,11 @@ function CartItem(props) {
           <img className="product-image" src={props.url} />
         </th>
 
-        <td>
-          <em>{titles}...</em>
+        <td colspan="5">
+          <em>{titles}...</em><br/>
+          <p>{props.quantity} x Rs.{props.price}</p>
         </td>
-        <td>
-          {props.quantity} x Rs.{props.price}
-        </td>
+       
         <td>
           <button className="delete">
             <DeleteIcon

@@ -2,12 +2,10 @@ import React from "react";
 
 export default function Loader() {
   return (
-    <div
-      className="spinner-grow"
-      style={{ width: "3rem", height: "3rem" }}
-      role="status"
-    >
-      <span className="sr-only">Loading...</span>
+    <div><img src='https://i.ibb.co/pR3sFH8/logo.png'  /> 
+      <span class=" spinner-grow text-warning" role="status" aria-hidden="false"  ></span>
+   
+      
     </div>
   );
 }

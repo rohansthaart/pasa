@@ -6,8 +6,12 @@ import TopCarousel from "./TopCarousel";
 import Footer from "./Footer"
 export default function HomeComponent() {
   return (
-    <div>
+    <div className='container-fluid'>
+     
+        <div className='col'>
       <TopCarousel />
+     
+      </div>
       <br/>
       <Products />
       //See what's selling
