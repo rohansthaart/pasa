@@ -1,6 +1,5 @@
 import React,{useEffect,useState} from "react";
-import Chart from './AdminChart'
-
+import Dashboard from './Dashboard'
 
 
 function AdminProfile() {
@@ -75,7 +74,8 @@ function AdminProfile() {
             role="tabpanel"
             aria-labelledby="v-pills-home-tab"
           >
-           <Chart/>
+            
+           <Dashboard/>
           </div>
           <div
             className="tab-pane fade"

@@ -25,8 +25,8 @@ export default function Sales() {
         options={options}
         series={series}
         type="line"
-        width="845"
-        height="370"
+        width="1050"
+        height="500"
       />
     </div>
   );
