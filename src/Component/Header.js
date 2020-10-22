@@ -29,6 +29,7 @@ function Header() {
     history.push(`/product/${searchId}`)
   }
   return (
+    <div>
     <div class="header">
       <nav className="navbar navbar-expand-md navbar-light bg-light ">
       <button
@@ -42,8 +43,8 @@ function Header() {
         >
           <ExpandMoreIcon/>
         </button>
-        <a className="navbar-brand" href="#">
-         <img src='https://i.ibb.co/pR3sFH8/logo.png'/>
+        <a className="" href="#">
+         <img className="header-Image" src='https://i.ibb.co/pR3sFH8/logo.png'/>
         </a>
 
     
@@ -151,6 +152,13 @@ function Header() {
       </nav>
       
      
+    </div>
+            
+
+
+
+
+
     </div>
   );
 }

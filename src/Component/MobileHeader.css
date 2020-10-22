@@ -1,0 +1,9 @@
+@media (min-width: 576px) {
+  .mobileNav {
+    display: hidden;
+  }
+}
+
+.MuiBottomNavigationAction-root {
+  padding: 0;
+}
