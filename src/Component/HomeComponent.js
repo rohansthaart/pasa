@@ -6,11 +6,10 @@ import TopCarousel from "./TopCarousel";
 import Footer from "./Footer"
 export default function HomeComponent() {
   return (
-    <div className=''>
+    <div className='justify-content-center'>
      
-        <div className='col'>
       <TopCarousel />
-      </div>
+   
       <br/>
       <Products />
       <Footer/> 

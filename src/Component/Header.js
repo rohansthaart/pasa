@@ -5,14 +5,12 @@ import AvatarLogin from "./AvatarLogin";
 import Cart from "./Cart";
 import Button from "./LoginButton";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-
 import {Form} from 'react-bootstrap'
-import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { Link, useHistory } from "react-router-dom";
 import { useUser } from "../Context/UserContext";
 import {useProduct} from "../Context/ProductContext";
-import { Category } from "@material-ui/icons";
+
 function Header() {
   const { isSessionAvailable } = useUser();
   const {products} = useProduct();
@@ -30,10 +28,10 @@ function Header() {
   }
   return (
     <div>
-    <div class="header">
+    
       <nav className="navbar navbar-expand-md navbar-light bg-light ">
       <button
-          className="navbar-toggler"
+          className="navbar-toggler d-none "
           type="button"
           data-toggle="collapse"
           data-target="#navbarSupportedContent"
@@ -49,7 +47,7 @@ function Header() {
 
     
 
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <div className="collapse navbar-collapse d-none d-lg-block d-xl-block" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
               {/* <a className="nav-link" href="#">
@@ -65,7 +63,7 @@ function Header() {
               </Link>
             </li>
             
-            <li className="dropdown nav-item ">
+            <li className="dropdown nav-item d-none d-lg-block d-xl-block">
               <a href="#" className="nav-link">
                 Departments
               </a>
@@ -110,6 +108,9 @@ function Header() {
             </li>
           </ul>
         
+      
+        
+       </div>
        <div style={{width:"80%"}}>
        <Autocomplete
         freeSolo
@@ -135,30 +136,17 @@ function Header() {
       />
       
         </div>
+        <div className='d-none d-lg-block d-xl-block'>
         {isSessionAvailable ? (
-            <AvatarLogin />
+            <AvatarLogin className=''/>
           ) : (
-            <Link to="/login" className="nav-link" style={{paddingLeft:'0px'}}>
+            <Link to="/login" className="nav-link " style={{paddingLeft:'0px'}}>
               <Button />
             </Link>
           )}
-          <Cart />
-       </div>
-    
-      
-          
-        
-
+              </div>
+          <Cart />              
       </nav>
-      
-     
-    </div>
-            
-
-
-
-
-
     </div>
   );
 }

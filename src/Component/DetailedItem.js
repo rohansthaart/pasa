@@ -17,6 +17,7 @@ import {useUser} from "../Context/UserContext";
 import Specification from "./Specification";
 import HomeWorkOutlinedIcon from "@material-ui/icons/HomeWorkOutlined";
 import VerifiedUserOutlinedIcon from "@material-ui/icons/VerifiedUserOutlined";
+import MobileHeader from "./MobileHeader"
 import Footer from "./Footer";
 import Review from "./Review";
 import Alert from 'react-bootstrap/Alert'
@@ -288,6 +289,7 @@ function DetailedItem(props) {
       </div>
       <br />
       <Footer />
+      <MobileHeader/>
     </div>
   );
 }

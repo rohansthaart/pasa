@@ -13,7 +13,7 @@ export default function CustomizedBadges() {
     sum = sum + (item.quantity * parseInt(item.price))
   })
   return (
-    <div className="dropdown">
+    <div className="dropdown d-none d-lg-block d-xl-block">
       <div
         type="hover"
         id="dropdownMenuButton"

@@ -8,5 +8,18 @@
 }
 
 .single-card {
-  padding-left: 0;
+}
+
+.item-title {
+  margin: 0;
+}
+
+.discount-percentage {
+  margin-top: 0;
+}
+
+.fixed-rating {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
 }

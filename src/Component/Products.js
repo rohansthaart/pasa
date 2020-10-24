@@ -7,8 +7,8 @@ function Products() {
   
 
   return (
-    <div className="container">
-      <div className="row mb-4">
+    <div className="container justify-content-center">
+      <div className="row">
           {products.map(product=>  
           {
             const rating = product.review.map(r => r.rating);

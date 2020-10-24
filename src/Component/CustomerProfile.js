@@ -7,7 +7,7 @@ import Address from './Address'
 import AvatarLogin from './AvatarLogin';
 import axios from 'axios'
 import {useUser} from "../Context/UserContext";
-
+import MobileHeader from "./MobileHeader"
 
 
 function CustomerProfile() {
@@ -112,6 +112,7 @@ function CustomerProfile() {
           </div>
         </div>
       </div>
+      <MobileHeader/>
     </div>
   );
 }
