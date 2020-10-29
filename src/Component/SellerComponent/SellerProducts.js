@@ -5,6 +5,8 @@ import CreateProduct from "./CreateProductModal";
 import { Button } from "react-bootstrap";
 import { useProduct } from "../../Context/ProductContext";
 import { useUser } from "../../Context/UserContext";
+import AdForm from "./AdForm";
+import { ToastsContainer } from "react-toasts";
 
 export default function SellerProducts() {
   const { user } = useUser();
@@ -33,6 +35,13 @@ export default function SellerProducts() {
             <h1>You have no any products posted yet!</h1>
           )}
         </div>
+      </Paper>
+      <Paper className="ad-container" style={{ backgroundColor: "florawhite" }}>
+        <h1 style={{ color: "red" }}>
+          Having Low Sell?{" "}
+          <span style={{ color: "green" }}>Create Ad with us</span>
+        </h1>
+        <AdForm />
       </Paper>
       <CreateProduct
         modalVisible={modalVisible}

@@ -6,14 +6,14 @@ import { CartProvider } from "./Context/useCart";
 import { ProductProvider } from "./Context/ProductContext";
 import detailedSingleProduct from "./Component/detailedSingleProduct";
 
+
 function App() {
   return (
     <UserProvider>
       <ProductProvider>
         <BrowserRouter>
           <CartProvider>
-            
-            <MainComponent />
+            <MainComponent/>
           </CartProvider>
         </BrowserRouter>
       </ProductProvider>

@@ -78,7 +78,7 @@ export default function SellerProfile() {
                 startIcon={<VerifiedUser />}
                 className="acc-del-btn"
               >
-                Account Verify
+                Post Ads
               </Button>
             </div>
           </Paper>
