@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState ,useContext} from "react";
 
 import axios from "axios";
 import "./DetailedItem.css";
@@ -20,6 +20,7 @@ import VerifiedUserOutlinedIcon from "@material-ui/icons/VerifiedUserOutlined";
 import MobileHeader from "./MobileHeader"
 import Footer from "./Footer";
 import Review from "./Review";
+import {cartContext} from '../Context/useCart'
 import Alert from 'react-bootstrap/Alert'
 function DetailedItem(props) {
   const [addReview, setAddReview] = useState("");
@@ -77,6 +78,28 @@ function DetailedItem(props) {
     4.5: "Excellent",
     5: "Excellent+",
   };
+
+  const [cardItem,setCardItem]= useContext(cartContext);
+  const addToCart = () => {
+    if(cardItem.some(item => item.id === props.id)){
+     let item = cardItem.find(item=>item.id === props.id);
+     item.quantity = item.quantity + 1;
+      const index = cardItem.indexOf(item);
+      const virtualCart = [...cardItem];
+      const removedItem = virtualCart.splice(index, 1);
+      const newCart = cardItem.filter(
+        (item) => item.id !== removedItem[0].id
+      );
+      newCart.push(item);
+      setCardItem(newCart);
+    }
+    else {
+      setCardItem(prev=>[...prev,{id:props.id,img:props.url,descripton:props.name,price:props.price,quantity:1}])
+    }
+  }
+
+
+
 
   return (
     <div className="detail-specification container">
@@ -203,7 +226,7 @@ function DetailedItem(props) {
                 <PaymentOutlinedIcon />
                 BUY IT NOW
               </button>
-              <button type="button" class="btn btn-outline-success m-3">
+              <button type="button" class="btn btn-outline-success m-3" onClick={addToCart}>
                 <ShoppingCartIcon />
                 Add to Cart
               </button>

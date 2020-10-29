@@ -7,7 +7,7 @@ function Products() {
   
 
   return (
-    <div className="container justify-content-center">
+    <div className="" style={{ position:"unset",justifyContent:'center',alignItems:'center'}}>
       <div className="row">
           {products.map(product=>  
           {
@@ -22,6 +22,7 @@ function Products() {
               <div className="col-lg-2 col-md-3 col-sm-4 col-6">
             
           <SingleProduct
+          
             id={product._id}
             name={product.name}
             price={product.unitPrice}

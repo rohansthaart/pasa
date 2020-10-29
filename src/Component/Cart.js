@@ -50,12 +50,12 @@ export default function CustomizedBadges() {
                 />
               ))}
             </table>
-            <div className="container">
-              <h7 className="col">
+            <div className="">
+              <h7 className="">
                 <strong>Total:Rs.{sum}</strong>
               </h7>
-              <button class="btn btn-outline-secondary ">
-                <PaymentIcon onClick={() => console.log(cardItem)} />
+              <button class="btn btn-outline-secondary btn-sm" style={{justifyContent:'space-evenly'}}>
+                <PaymentIcon />
                 Checkout
               </button>
             </div>

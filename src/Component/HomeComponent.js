@@ -6,14 +6,18 @@ import TopCarousel from "./TopCarousel";
 import Footer from "./Footer"
 export default function HomeComponent() {
   return (
-    <div className='justify-content-center'>
+    <div style={{margin:'auto'}}>
+
+      <div className='container-fluid'>
+       
+        <TopCarousel />
      
-      <TopCarousel />
-   
-      <br/>
-      <Products />
-      <Footer/> 
-      <MobileHeader/>
-    </div>
-  );
+        <br/>
+        <Products />
+        <Footer/> 
+        <MobileHeader/>
+      </div>
+      </div>
+    );
+    
 }

@@ -31,32 +31,32 @@ function SingleProduct(props) {
     }
   }
   return (
-    <div className="card single-card" style={{ width: "180px", height: "310px"}}>
+    <div className="card single-card" style={{ width: "100%", height: "auto",marginBottom:'15px'}}>
       <Link to={`/product/${props.id}`}><img
         src={props.url}
-        style={{ objectFit: "cover", height: "177px", width: "177px" }}
+        style={{ objectFit: "cover", height: "100%", width: "100%" }}
       /></Link>
       <div>
-        <p style={{ marginLeft: "6px", textAlign: "left",fontSize:'1em'}} className='item-title'>{title}...</p>
-        {title.length <=16 ? <br/> : null}
+        <p style={{ marginLeft: "6px", textAlign: "left",fontSize:'1rem'}} className='item-title'>{title}...</p>
+       
       </div>
-      <div className="row">
+      <div className="row ">
         <div
           className="price col"
           style={{ marginLeft: "2px", textAlign: "left" }}
         >
           <h7>Rs.{props.price}</h7>
 
-          <h6 className='discount-percentage'> {props.discount}</h6>
+          <p className='discount-percentage'> {props.discount}off</p>
         </div>
-        <div className="col-4">
+        <div className="col-4 ">
           
           <ShoppingCartIcon fontSize="large" color="error"  onClick={addToCart}/>
         </div>
       </div>
       
         
-        <Rating className='fixed-rating' name="read-only half-rating" precision={0.1} value={props.rating} readOnly />
+        <Rating className='fixed-rating' name="read-only half-rating"  size="small"  precision={0.1} value={props.rating} readOnly />
       
     </div>
   );

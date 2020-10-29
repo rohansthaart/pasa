@@ -15,30 +15,30 @@ export default function LabelBottomNavigation() {
   return (
 
 
-    <div class="d-md-none navbar fixed-bottom container-fluid " style={{backgroundColor:'white'}}>
+    <div class="d-md-none navbar fixed-bottom container-fluid " style={{backgroundColor:'white',padding: '0px'}}>
     
-    <Link to="/" className="nav-link"><BottomNavigationAction className="d-flex justify-content-around" style={{padding:"0"}} label="HOME" icon={<div><HomeIcon  fontSize="large"/><br/>Home</div>} /></Link>
+    <Link to="/" className="nav-link"><BottomNavigationAction className="d-flex justify-content-between" style={{padding:"0"}} label="HOME" icon={<div><HomeIcon  fontSize="large"/><br/>Home</div>} /></Link>
     {isSessionAvailable ? (
       user && user.citizenshipNumber ? (
         <Link to="/merchant" className="nav-link">
-          <BottomNavigationAction className="d-flex justify-content-around" style={{padding:"0"}}  label="" icon={<div><PersonIcon fontSize="large"/><br/>{user ? user.firstName : "S"}</div>} />
+          <BottomNavigationAction className="d-flex justify-content-between" style={{padding:"0"}}  label="" icon={<div><PersonIcon fontSize="large"/><br/>{user ? user.firstName : "S"}</div>} />
           
         </Link>
       ) : (
         <Link to="/account" className="nav-link ">
-          <BottomNavigationAction className="d-flex justify-content-around" style={{padding:"0"}}  label="" icon={<div><PersonIcon fontSize="large"/><br/>{user ? user.firstName : "S"}</div>} />
+          <BottomNavigationAction className="d-flex justify-content-between" style={{padding:"0"}}  label="" icon={<div><PersonIcon fontSize="large"/><br/>{user ? user.firstName : "S"}</div>} />
           
         </Link>
       )
             
           ) : (
-            <Link to="/login" className="nav-link" style={{paddingLeft:'0px'}}>
-              <BottomNavigationAction className="d-flex justify-content-around" style={{padding:"0"}}  label="Signin/Signup" icon={<div><PersonIcon fontSize="large"/><br/>Login/Signup</div>} />
+            <Link to="/login" className="nav-link">
+              <BottomNavigationAction className="d-flex justify-content-between" style={{padding:"0"}}  label="Signin/Signup" icon={<div><PersonIcon fontSize="large"/><br/>Login/Signup</div>} />
             </Link>
           )}
-       
-    <BottomNavigationAction className="d-flex justify-content-around" style={{padding:"0"}}  label="Cart" icon={<div><ShoppingCartIcon fontSize="large"/><br/>Cart</div>} />
-
+        <Link to="/checkout" className="nav-link">
+    <BottomNavigationAction className="d-flex justify-content-between " style={{padding:"0"}}  label="Cart" icon={<div><ShoppingCartIcon fontSize="large"/><br/>Cart</div>} />
+    </Link>
 </div>
   );
 }

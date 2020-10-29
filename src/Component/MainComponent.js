@@ -18,7 +18,8 @@ import DetailedItem from "./DetailedItem";
 import Products from "./Products";
 import SingleProduct from "./SingleProduct";
 import DetailedSingleProduct from "./detailedSingleProduct";
-
+import TermsCon from './Terms&Con'
+import CheckOut from './Checkout'
 export default function MainComponent(props) {
   const products = useProduct().products
   console.log(products); 
@@ -37,7 +38,8 @@ export default function MainComponent(props) {
     );
   } else {
     return (
-      <div>
+      
+      <div >
         <Header />
         <Switch location={props.location}>
           <Route path="/" exact component={Home} />
@@ -49,8 +51,11 @@ export default function MainComponent(props) {
           <Route path="/profile" component={Profile} />
           <Route path="/product/:id" exact component={DetailedSingleProduct}/>
           <PrivateSellerRoute path="/merchant" exact component={SellerEntry} />
+          <Route path="/checkout" component={CheckOut}/>
+          <Route path='/termsandconditions' component={TermsCon}/>
         </Switch>
       </div>
+      
     );
   }
 }
