@@ -4,14 +4,20 @@ import { Spinner } from "react-bootstrap";
 import {Modal,Button , Form} from 'react-bootstrap'
 import { useUser } from "../Context/UserContext";
 
+import { addresses} from  './AddressesOption'
+
+
 function LocationModal({ modalVisible, closeModal }) {
   const { setUser, user } = useUser();
 
 const [region,setRegion]= useState('');
 const [city,setCity] = useState('');
+const [selectCity,setSelectCity]=useState([]);
 const [area,setArea]= useState('')
 const [address,setAddress]= useState('')
 const [loading, setLoading] = useState(false);
+
+
    const uploadLocation =()=>{
      setLoading(true);
      fetch('/user/addShippingAddress',{
@@ -56,13 +62,13 @@ const [loading, setLoading] = useState(false);
               
                 <Form.Label>Region</Form.Label>
                 <Form.Control
-                  placeholder='Please choose your region'
                   as="select"
                   onChange={(e) => setRegion(e.target.value)}
+
                 >
-                   <option>A</option>
-                   <option>B</option>
-                   <option>C</option>
+                  <option disabled selected>Please select your region</option>
+                   {addresses.map(address=><option>{address.region}</option>)}
+                   
                   
                 </Form.Control>
             
@@ -73,30 +79,20 @@ const [loading, setLoading] = useState(false);
                   as="select"
                   onChange={(e) => setCity(e.target.value)}
                 >
-                  {/* {region === "Women" ? (
+                  <option disabled selected>Please select your city</option>
+                   {region === "bagmati" ? (
                     <>
                       
-                      <option>Jeans</option>
-                    </>
-                  ) : region === "Men" ? (
-                    <>
-                      <option>Men's Accessories</option>
+                      {addresses.map(address=>address.citys.map(city=><option>{city.cityName}</option>))}
                       
                     </>
-                  ): region === "Electrionics" ? (
-                    <>
-                      <option>Cell Phones & Accessories</option>
-                      
-                    </>
-                  ):(
+                  ) :(
                     <>
                       
-                      <option>Others</option>
+                      <option>Other</option>
                     </>
-                  )} */}
-                  <option>x</option>
-                  <option>y</option>
-                  <option>z</option>
+                  )} 
+                  
                 </Form.Control>
             
            
@@ -105,13 +101,25 @@ const [loading, setLoading] = useState(false);
               
                 <Form.Label>Area</Form.Label>
                 <Form.Control
-                  placeholder='Please choose your area'
                   as="select"
                   onChange={(e) => setArea(e.target.value)}
                 >
-                  <option>Mobiles</option>
+                  <option disabled selected>Please select you area</option>
+                  {city === 'Banepa' ? (
+                    <>
+                       {setSelectCity(addresses.map(address=>address.citys.filter(cit=>cit.cityName==city)))}
+                   <option>   {selectCity.map(area=>area.areas)}</option>
+                     
+                     
+                    
+                    </>
+                  ) :(
+                    <>
+                      
+                      <option>Other</option>
+                    </>
+                  )} 
                   
-                  <option>Others</option>
                 </Form.Control>
                   
 
