@@ -63,7 +63,7 @@ export default function SignupComponent() {
   };
 
   return (
-    <div class="card" style={{}}>
+    <div class="card" style={{width:'100%',height:'100%'}}>
       <ToastsContainer className="mytoast" store={ToastsStore} />
       <div class="card-body">
         <h1>No account? Signup</h1>

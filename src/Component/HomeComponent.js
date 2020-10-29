@@ -6,15 +6,18 @@ import TopCarousel from "./TopCarousel";
 import Footer from "./Footer"
 export default function HomeComponent() {
   return (
-    <div className=''>
+    <div style={{margin:'auto'}}>
+
+      <div className='container-fluid'>
+       
+        <TopCarousel />
      
-        <div className='col'>
-      <TopCarousel />
+        <br/>
+        <Products />
+        <Footer/> 
+        <MobileHeader/>
       </div>
-      <br/>
-      <Products />
-      <Footer/> 
-      <MobileHeader/>
-    </div>
-  );
+      </div>
+    );
+    
 }

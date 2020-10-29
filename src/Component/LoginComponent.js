@@ -12,10 +12,16 @@ export default function LoginComponent() {
   if (!seller) {
     return (
       <>
-        <Container className="d-flex justify-content-around ">
+        <div className="container">
+          <div className='row'>
+            <div className='col justify-content-center'>
           <SigninComponent />
+          </div>
+          <div className='col justify-content-center'>
           <SignupComponent />
-        </Container>
+          </div>
+          </div>
+        </div>
         <div style={{ marginTop: 15, textAlign: "center" }}>
           <h4>------------OR-----------</h4>
           <Button onClick={() => setSeller(true)}>Continue as Seller</Button>

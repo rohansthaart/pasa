@@ -13,7 +13,7 @@ export default function CustomizedBadges() {
     sum = sum + (item.quantity * parseInt(item.price))
   })
   return (
-    <div className="dropdown">
+    <div className="dropdown d-none d-lg-block d-xl-block">
       <div
         type="hover"
         id="dropdownMenuButton"
@@ -50,12 +50,12 @@ export default function CustomizedBadges() {
                 />
               ))}
             </table>
-            <div className="container">
-              <h7 className="col">
+            <div className="">
+              <h7 className="">
                 <strong>Total:Rs.{sum}</strong>
               </h7>
-              <button class="btn btn-outline-secondary ">
-                <PaymentIcon onClick={() => console.log(cardItem)} />
+              <button class="btn btn-outline-secondary btn-sm" style={{justifyContent:'space-evenly'}}>
+                <PaymentIcon />
                 Checkout
               </button>
             </div>
