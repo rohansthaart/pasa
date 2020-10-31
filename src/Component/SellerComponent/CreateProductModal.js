@@ -17,11 +17,12 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
   const [localUrl, setLocalUrl] = useState("");
   const [loading, setLoading] = useState(false);
   const [uploadLoading, setUploadLoading] = useState(false);
-  const [subSubCategory,setSubSubCategory]=useState("");
-  const [brand, setBrand]= useState("");
+  const [subSubCategory, setSubSubCategory] = useState("");
+  const [brand, setBrand] = useState("");
   const addPic = (remoteUrl) => {
     setImage((prev) => [...prev, remoteUrl]);
   };
+
   const uploadPic = () => {
     setUploadLoading(true);
     const data = new FormData();
@@ -122,9 +123,9 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
                   as="select"
                   onChange={(e) => setCategory(e.target.value)}
                 >
-                   <option disabled selected>Select Category</option>
-                  <option>Women</option>
-                  <option>Men</option>
+                  <option>Other</option>
+                  <option>Women's Fashion</option>
+                  <option>Men's Fashion</option>
                   <option>Electrionics</option>
                   <option>Toys</option>
                   <option>Home</option>
@@ -174,7 +175,7 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
                       <option>Traditional Clothing</option>
                       <option>Others</option>
                     </>
-                  ): category === "Electrionics" ? (
+                  ) : category === "Electrionics" ? (
                     <>
                       <option>Cell Phones & Accessories</option>
                       <option>Computers & Laptops</option>
@@ -188,7 +189,7 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
                       <option>TV & Videos</option>
                       <option>Others</option>
                     </>
-                  ): category === "Toys" ? (
+                  ) : category === "Toys" ? (
                     <>
                       <option>Collectibles & Hobbies</option>
                       <option>Action Figures & Accessories</option>
@@ -202,13 +203,12 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
                       <option>Remote Control Toys & Vehicles</option>
                       <option>Others</option>
                     </>
-                  ): category === "Accessories" ? (
+                  ) : category === "Accessories" ? (
                     <>
                       <option>Sunglasses</option>
                       <option>Watches</option>
                       <option>Necklaces</option>
                       <option>Others</option>
-                      
                     </>
                   ) : category === "Home" ? (
                     <>
@@ -223,9 +223,8 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
                       <option>Furniture</option>
                       <option>Bath</option>
                       <option>Others</option>
-                      
                     </>
-                  ): category === "Beauty" ? (
+                  ) : category === "Beauty" ? (
                     <>
                       <option>Makeup</option>
                       <option>Fragrance</option>
@@ -234,10 +233,8 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
                       <option>Hair Care</option>
                       <option>Bath & Body</option>
                       <option>Other</option>
-                      
-                      
                     </>
-                  ): category === "Groceries" ? (
+                  ) : category === "Groceries" ? (
                     <>
                       <option>Beverages</option>
                       <option>Breakfast & Snacks</option>
@@ -246,7 +243,7 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
                       <option>Wines,Beers & Spirits</option>
                       <option>Others</option>
                     </>
-                  ): category === "Kids" ? (
+                  ) : category === "Kids" ? (
                     <>
                       <option>Girls Dress</option>
                       <option>Girls Tops & t-shirts</option>
@@ -261,7 +258,7 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
                       <option>Boys Shoes</option>
                       <option>Others</option>
                     </>
-                  ): category === "Vintage" ? (
+                  ) : category === "Vintage" ? (
                     <>
                       <option>Bags & Purses</option>
                       <option>Books</option>
@@ -276,7 +273,7 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
                       <option>Houseware</option>
                       <option>Others</option>
                     </>
-                  ): category === "Sports" ? (
+                  ) : category === "Sports" ? (
                     <>
                       <option>Outdoors</option>
                       <option>Exercise</option>
@@ -286,9 +283,8 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
                       <option>Apparel</option>
                       <option>Footwear</option>
                       <option>Others</option>
-                      
                     </>
-                  ): category === "Music Instrument" ? (
+                  ) : category === "Music Instrument" ? (
                     <>
                       <option>Guitar</option>
                       <option>Paino</option>
@@ -298,9 +294,8 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
                       <option>Tabala</option>
                       <option>Madal</option>
                       <option>Others</option>
-                      
                     </>
-                  ): category === "Handmade" ? (
+                  ) : category === "Handmade" ? (
                     <>
                       <option>Pashmina</option>
                       <option>Khukuri</option>
@@ -310,27 +305,24 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
                       <option>Nepali Jewelry</option>
                       <option>Thanka Paintings</option>
                       <option>Others</option>
-                      
                     </>
-                  ):(
+                  ) : (
                     <>
-                      
                       <option>Others</option>
                     </>
                   )}
                 </Form.Control>
               </Col>
             </Row>
-            
+
             <Row style={{ marginTop: 10 }}>
               <Col>
                 <Form.Label>Select Sub-Sub-Category</Form.Label>
                 <Form.Control
                   as="select"
                   onChange={(e) => setSubSubCategory(e.target.value)}
-                > 
-                <option disabled selected>Select Sub-sub-Category</option>
-                   {subCategory === "Women's Handbags" ? (
+                >
+                  {subCategory === "Women's Handbags" ? (
                     <>
                       <option>Backpacks</option>
                       <option>Cosmetic Bags</option>
@@ -343,9 +335,8 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
                       <option>Messenger Bags</option>
                       <option>Bucket Bags</option>
                       <option>Others</option>
-                      
                     </>
-                  ): subCategory === "Shoes" ? (
+                  ) : subCategory === "Shoes" ? (
                     <>
                       <option>Athletic Shoes</option>
                       <option>Boots</option>
@@ -354,9 +345,8 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
                       <option>Sandals</option>
                       <option>Slippers</option>
                       <option>Others</option>
-                      
                     </>
-                  ): subCategory === "Athletic Apparel" ? (
+                  ) : subCategory === "Athletic Apparel" ? (
                     <>
                       <option>Jackets</option>
                       <option>Jerseys</option>
@@ -368,7 +358,7 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
                       <option>Tracksuits & Sweats</option>
                       <option>Others</option>
                     </>
-                  ): subCategory === "Shoes" ? (
+                  ) : subCategory === "Shoes" ? (
                     <>
                       <option>Athletic Shoes</option>
                       <option>Boots</option>
@@ -379,9 +369,8 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
                       <option>Work & Safety</option>
                       <option>Outdoor</option>
                       <option>Others</option>
-                      
                     </>
-                  ): subCategory === "Tops & Blouses" ? (
+                  ) : subCategory === "Tops & Blouses" ? (
                     <>
                       <option>Blouses</option>
                       <option>Button-down</option>
@@ -392,9 +381,8 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
                       <option>T-Shirts</option>
                       <option>Tank,Cami</option>
                       <option>Others</option>
-                      
                     </>
-                  ): subCategory === "Jewelry" ? (
+                  ) : subCategory === "Jewelry" ? (
                     <>
                       <option>Bracelets</option>
                       <option>Earrings</option>
@@ -404,9 +392,8 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
                       <option>Pendants</option>
                       <option>Watches</option>
                       <option>Others</option>
-                      
                     </>
-                  ): subCategory === "Women's Accessories" ? (
+                  ) : subCategory === "Women's Accessories" ? (
                     <>
                       <option>Belts</option>
                       <option>Hair Accessories</option>
@@ -416,9 +403,8 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
                       <option>Wallets</option>
                       <option>Watches</option>
                       <option>Others</option>
-                      
                     </>
-                  ): subCategory === "Dresses" ? (
+                  ) : subCategory === "Dresses" ? (
                     <>
                       <option>Above Knee,Mini</option>
                       <option>High Low</option>
@@ -427,9 +413,8 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
                       <option>Midi</option>
                       <option>Jumpsuits & Rompers</option>
                       <option>Others</option>
-                      
                     </>
-                  ): subCategory === "Sweaters" ? (
+                  ) : subCategory === "Sweaters" ? (
                     <>
                       <option>Cardigans</option>
                       <option>Collared</option>
@@ -441,9 +426,8 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
                       <option>V-neck</option>
                       <option>Vest,Sleeveless</option>
                       <option>Others</option>
-                      
                     </>
-                  ): subCategory === "Coats & Jackets" ? (
+                  ) : subCategory === "Coats & Jackets" ? (
                     <>
                       <option>Fleece Jackets</option>
                       <option>Jean Jackets</option>
@@ -456,9 +440,8 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
                       <option>Rainwear</option>
                       <option>Flight/Bomber Jackets</option>
                       <option>Others</option>
-                      
                     </>
-                  ): subCategory === "Jeans" ? (
+                  ) : subCategory === "Jeans" ? (
                     <>
                       <option>Boot Cut</option>
                       <option>Boyfriend</option>
@@ -475,20 +458,18 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
                       <option>Relaxed</option>
                       <option>Others</option>
                     </>
-                  ): subCategory === "Tops" ? (
+                  ) : subCategory === "Tops" ? (
                     <>
-                      
                       <option>Button-Front</option>
                       <option>Dress Shirts</option>
                       <option>Henleys</option>
                       <option>T-Shirts</option>
                       <option>Tanks</option>
                       <option>Turtlenecks</option>
-                      
+
                       <option>Others</option>
-                      
                     </>
-                  ): subCategory === "Men's Accessories" ? (
+                  ) : subCategory === "Men's Accessories" ? (
                     <>
                       <option>Backpacks,Bags & Briefcases</option>
                       <option>Belts</option>
@@ -498,9 +479,8 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
                       <option>Wallets</option>
                       <option>Watches</option>
                       <option>Others</option>
-                      
                     </>
-                  ): subCategory === "Sweats & Hoodies" ? (
+                  ) : subCategory === "Sweats & Hoodies" ? (
                     <>
                       <option>Hoodies</option>
                       <option>Sweatshirt,Pullover</option>
@@ -508,9 +488,8 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
                       <option>Tracks & Sweat Suits</option>
                       <option>Track Jackts</option>
                       <option>Others</option>
-                      
                     </>
-                  ): subCategory === "Shorts" ? (
+                  ) : subCategory === "Shorts" ? (
                     <>
                       <option>Athletic</option>
                       <option>Cargo</option>
@@ -519,11 +498,9 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
                       <option>Dress Shorts</option>
                       <option>Khakis, Chinos</option>
                       <option>Others</option>
-                      
                     </>
-                  ):(
+                  ) : (
                     <>
-                      
                       <option>Others</option>
                     </>
                   )}
@@ -549,7 +526,7 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
                   <option>Others</option>
                 </Form.Control>
               </Col>
-              </Row>     
+            </Row>
 
             <Form.Group controlId="textarea" style={{ marginTop: 10 }}>
               <Form.Label>Enter Description</Form.Label>

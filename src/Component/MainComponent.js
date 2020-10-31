@@ -13,16 +13,17 @@ import SellerVerification from "./SellerComponent/SellerVerificationScreen";
 import PrivateSellerRoute from "./SellerComponent/PrivateSellerComponent";
 import PrivateUserRoute from "./PrivateUserRoute";
 import "./Main.css";
-import {useProduct} from '../Context/ProductContext'
+import { useProduct } from "../Context/ProductContext";
 import DetailedItem from "./DetailedItem";
 import Products from "./Products";
 import SingleProduct from "./SingleProduct";
 import DetailedSingleProduct from "./detailedSingleProduct";
-import TermsCon from './Terms&Con'
-import CheckOut from './Checkout'
+import QueryProducts from "./QueryProducts";
+import TermsCon from "./Terms&Con";
+import CheckOut from "./Checkout";
 export default function MainComponent(props) {
-  const products = useProduct().products
-  console.log(products); 
+  const products = useProduct().products;
+  console.log(products);
 
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -38,8 +39,7 @@ export default function MainComponent(props) {
     );
   } else {
     return (
-      
-      <div >
+      <div>
         <Header />
         <Switch location={props.location}>
           <Route path="/" exact component={Home} />
@@ -49,13 +49,17 @@ export default function MainComponent(props) {
           <Route path="/user-verify" component={UserVerificationScreen} />
           <Route path="/seller-verify" component={SellerVerification} />
           <Route path="/profile" component={Profile} />
-          <Route path="/product/:id" exact component={DetailedSingleProduct}/>
+          <Route path="/product/:id" exact component={DetailedSingleProduct} />
           <PrivateSellerRoute path="/merchant" exact component={SellerEntry} />
-          <Route path="/checkout" component={CheckOut}/>
-          <Route path='/termsandconditions' component={TermsCon}/>
+          <Route path="/checkout" component={CheckOut} />
+          <Route path="/termsandconditions" component={TermsCon} />
+          <Route
+            path="/category/:categoryName"
+            exact
+            component={QueryProducts}
+          />
         </Switch>
       </div>
-      
     );
   }
 }
