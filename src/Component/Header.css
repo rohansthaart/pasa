@@ -26,7 +26,7 @@
 
 .dropdown:hover .dropdown-content {
   display: block;
-  column-count: 3;
+  column-count: 4;
 }
 
 .header {
@@ -51,4 +51,12 @@
 .header-Image {
   height: 9vh;
   width: 9vw;
+}
+
+.dropdown-content {
+  justify-content: "left";
+  height: auto;
+  width: auto;
+  background: none;
+  border: none;
 }

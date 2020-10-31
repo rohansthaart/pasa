@@ -122,7 +122,7 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
                   as="select"
                   onChange={(e) => setCategory(e.target.value)}
                 >
-                   <option>Other</option>
+                   <option disabled selected>Select Category</option>
                   <option>Women</option>
                   <option>Men</option>
                   <option>Electrionics</option>
@@ -142,9 +142,10 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
                 <Form.Control
                   as="select"
                   onChange={(e) => setSubCategory(e.target.value)}
-                >
+                ><option disabled selected>Select Sub-Category</option>
                   {category === "Women" ? (
                     <>
+
                       <option>Women's Handbags</option>
                       <option>Shoes</option>
                       <option>Athletic Apparel</option>
@@ -327,7 +328,8 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
                 <Form.Control
                   as="select"
                   onChange={(e) => setSubSubCategory(e.target.value)}
-                >
+                > 
+                <option disabled selected>Select Sub-sub-Category</option>
                    {subCategory === "Women's Handbags" ? (
                     <>
                       <option>Backpacks</option>
@@ -533,16 +535,17 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
                   as="select"
                   onChange={(e) => setBrand(e.target.value)}
                 >
-                  <option>Mobiles</option>
-                  <option>Electronics</option>
-                  <option>Home & Kitchen</option>
-                  <option>Beauty & Fragrances </option>
-                  <option>Accessories</option>
-                  <option>Men's Fashion</option>
-                  <option>Women's Fashion</option>
-                  <option>Music Instrument</option>
-                  <option>Sports & Fitness</option>
-                  <option>Groceries</option>
+                  <option selected disabled>Select Brand</option>
+                  <option>H&M</option>
+                  <option>Apple</option>
+                  <option>Samsung</option>
+                  <option>Lenovo </option>
+                  <option>ASUS</option>
+                  <option>POLO</option>
+                  <option>NIKE</option>
+                  <option>CASIO</option>
+                  <option>DELL</option>
+                  <option>ACER</option>
                   <option>Others</option>
                 </Form.Control>
               </Col>

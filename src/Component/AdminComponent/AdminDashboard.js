@@ -1,6 +1,7 @@
 import React,{useEffect,useState} from "react";
-import Dashboard from './Dashboard'
 
+import Dashboard from './Dashboard'
+import AdsTable from './AdsTable'
 
 function AdminProfile() {
  
@@ -53,17 +54,7 @@ function AdminProfile() {
           >
             Net Income
           </a>
-          <a
-            className="nav-link"
-            id="v-pills-settings-tab"
-            data-toggle="pill"
-            href="#v-pills-settings"
-            role="tab"
-            aria-controls="v-pills-settings"
-            aria-selected="false"
-          >
-            Orders
-          </a>
+          
         </div>
       </div>
       <div className="col-9">
@@ -83,7 +74,7 @@ function AdminProfile() {
             role="tabpanel"
             aria-labelledby="v-pills-profile-tab"
           >
-            table and put ads
+           <AdsTable/>
           </div>
           <div
             className="tab-pane fade"
@@ -93,14 +84,7 @@ function AdminProfile() {
           >
             Net Income
           </div>
-          <div
-            className="tab-pane fade"
-            id="v-pills-settings"
-            role="tabpanel"
-            aria-labelledby="v-pills-settings-tab"
-          >
-           ORDERS
-          </div>
+         
         </div>
       </div>
     </div>
