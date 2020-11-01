@@ -3,22 +3,22 @@ import "./DepartmentCard.css";
 function DepartmentCard({url,title,subTitle}) {
   return (
     
-      <div class="property-card">
+      <div className="property-card">
           <div
-            class="property-image"
+            className="property-image"
             style={{
               backgroundImage: `url("${url}")`,
             }}
           >
-            <div class="property-image-title"></div>
+            <div className="property-image-title"></div>
           </div>
-        <div class="property-description">
+        <div className="property-description">
           <h5> {title}</h5>
           <p>
             {subTitle}
           </p>
         </div>
-          <div class="property-social-icons"></div>
+          <div className="property-social-icons"></div>
         
       </div>
     

@@ -102,16 +102,16 @@ function DetailedItem(props) {
 
 
   return (
-    <div className="detail-specification container">
+    <div className="detail-specification ">
       <div className="row">
         {/*main image*/}
-        <div className=" col-md-7 col-lg-8">
+        <div className=" col-md-12 col-lg-12 col-xl-5">
           <div>
             <div id="myCarouselArticle" class="carousel " data-ride="false">
               <div style={{ padding: "0px" }}>
                 <div class="carousel-item active">
                   <img
-                    className="slide-image "
+                    className="slide-image center"
                     src={selectedImage}
                     alt="Card image cap"
                     title=""
@@ -141,7 +141,7 @@ function DetailedItem(props) {
             </div>
           </div>
         </div>
-        <div className="col-12 col-sm-12 col-md-5 col-lg-4 card">
+        <div className="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 card">
           <div className="product_title">
             <h3>{props.name}</h3>
           </div>
@@ -182,7 +182,7 @@ function DetailedItem(props) {
           </div>
         </div>
 
-        <div className="col-12 card">
+        <div className="col-12 col-lg-6 col-md-6 col-xl-4 card">
           <div>
             <h3> Total: Rs.{count * props.price}</h3>
             Delevery Options <br />
@@ -251,7 +251,7 @@ function DetailedItem(props) {
         </div>
       </div>
 
-      <div className="review-specification">
+      <div className="review-specification container">
         <div>
           <button
             className="btn"

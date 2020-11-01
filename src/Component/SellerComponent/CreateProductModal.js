@@ -118,12 +118,12 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
 
             <Row style={{ marginTop: 10 }}>
               <Col>
-                <Form.Label>Select Category</Form.Label>
+                <Form.Label>Category</Form.Label>
                 <Form.Control
                   as="select"
                   onChange={(e) => setCategory(e.target.value)}
                 >
-                  <option>Other</option>
+                  <option selected disabled>Select Category</option>
                   <option>Women's Fashion</option>
                   <option>Men's Fashion</option>
                   <option>Electrionics</option>
@@ -143,8 +143,8 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
                 <Form.Control
                   as="select"
                   onChange={(e) => setSubCategory(e.target.value)}
-                ><option disabled selected>Select Sub-Category</option>
-                  {category === "Women" ? (
+                ><option disabled selected>Sub-Category</option>
+                  {category === "Women's Fashion" ? (
                     <>
 
                       <option>Women's Handbags</option>
@@ -161,7 +161,7 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
                       <option>Jeans</option>
                       <option>Others</option>
                     </>
-                  ) : category === "Men" ? (
+                  ) : category === "Men's Fashion" ? (
                     <>
                       <option>Men's Accessories</option>
                       <option>Shoes</option>
@@ -317,11 +317,12 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
 
             <Row style={{ marginTop: 10 }}>
               <Col>
-                <Form.Label>Select Sub-Sub-Category</Form.Label>
+                <Form.Label>Sub-Sub-Category</Form.Label>
                 <Form.Control
                   as="select"
                   onChange={(e) => setSubSubCategory(e.target.value)}
                 >
+                  <option disabled selected>Select Sub-Sub-Category</option>
                   {subCategory === "Women's Handbags" ? (
                     <>
                       <option>Backpacks</option>

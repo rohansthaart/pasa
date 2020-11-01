@@ -67,10 +67,10 @@ function Footer() {
                   height="249"
                   id="gmap_canvas"
                   src="https://maps.google.com/maps?q=namgyal%20chowk%2C%20kathmandu&t=&z=15&ie=UTF8&iwloc=&output=embed"
-                  frameborder="0"
+                  frameBorder="0"
                   scrolling="no"
-                  marginheight="0"
-                  marginwidth="0"
+                  marginHeight="0"
+                  marginWidth="0"
                 ></iframe>
               </div>
             </div>
@@ -86,7 +86,7 @@ function Footer() {
               Copyright &copy; 2020 All Rights Reserved by PASA
             </p>
             <Link to="/termsandconditions">
-              <a href="">Terms & Conditions</a>
+              Terms & Conditions
             </Link>
           </div>
         </div>

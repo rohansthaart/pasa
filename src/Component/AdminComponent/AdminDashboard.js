@@ -2,7 +2,7 @@ import React,{useEffect,useState} from "react";
 
 import Dashboard from './Dashboard'
 import AdsTable from './AdsTable'
-
+import Test from './Test'
 function AdminProfile() {
  
 
@@ -82,7 +82,7 @@ function AdminProfile() {
             role="tabpanel"
             aria-labelledby="v-pills-messages-tab"
           >
-            Net Income
+            <Test/>
           </div>
          
         </div>
