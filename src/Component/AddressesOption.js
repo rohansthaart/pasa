@@ -1,6 +1,6 @@
 export const addresses = [
   {
-    region: "bagmati",
+    region: "Bagmati",
 
     cities: [
       {

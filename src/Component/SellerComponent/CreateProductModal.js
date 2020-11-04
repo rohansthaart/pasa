@@ -1,10 +1,13 @@
 import React, { useState } from "react";
-import { Modal, Button, Row, Col, Form } from "react-bootstrap";
+import { Modal, Button, Row, Col, Form,InputGroup,FormControl } from "react-bootstrap";
 import { ToastsContainer, ToastsStore } from "react-toasts";
 import { useProduct } from "../../Context/ProductContext";
 import { Spinner } from "react-bootstrap";
 
 export default function CreateProductModal({ modalVisible, closeModal }) {
+  
+  
+
   const { setChanged, changed } = useProduct();
   const [productName, setProductName] = useState("");
   const [price, setPrice] = useState("");
@@ -19,6 +22,10 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
   const [uploadLoading, setUploadLoading] = useState(false);
   const [subSubCategory, setSubSubCategory] = useState("");
   const [brand, setBrand] = useState("");
+  const [toggle,setToggle]= useState('false');
+
+
+
   const addPic = (remoteUrl) => {
     setImage((prev) => [...prev, remoteUrl]);
   };
@@ -106,19 +113,27 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
                   onChange={(e) => setPrice(e.target.value)}
                 />
               </Col>
-              <Col>
-                <Form.Label>Product Discount</Form.Label>
-                <Form.Control
+             
+         <Col>
+                
+         <Form.Label >Product Discount</Form.Label>
+                <InputGroup.Checkbox aria-label="Checkbox for following text input" onChange={()=>setToggle(!toggle)} />
+
+            <Form.Control disabled={toggle}
                   type="text"
-                  placeholder="Enter Product Discount in %"
+                  placeholder="Enter Discount in %"
                   onChange={(e) => setDiscount(e.target.value)}
                 />
+                
               </Col>
             </Row>
-
+           
             <Row style={{ marginTop: 10 }}>
               <Col>
-                <Form.Label>Category</Form.Label>
+              
+           
+
+              <Form.Label>Category</Form.Label>
                 <Form.Control
                   as="select"
                   onChange={(e) => setCategory(e.target.value)}

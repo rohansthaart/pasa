@@ -1,11 +1,24 @@
-import React,{useState} from 'react';
-import LoctionModal from './LocationModal'
+import React,{useState,useContext} from 'react';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined';
-import LocationModal from './LocationModal';
 import { Button } from "react-bootstrap";
+import axios from 'axios'
+
+import {useUser} from '../Context/UserContext';
+import LocationModal from './LocationModal';
+
+
 
 function Address() {
+  
+  const deleteAddress = (id) => {
+    fetch("/user/deleteAddress/" + id)
+      .then(res=>console.log(res))
+      .catch((err) => console.log(err));
+  };
+
+  const userAddress = useUser().user.shippingAddress
+  console.log(userAddress)
   const [modalVisible, setModalVisible] = useState(false);
   const openModal = () => setModalVisible(true);
   const closeModal = () => setModalVisible(false);
@@ -19,22 +32,15 @@ function Address() {
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">Bagmati - Kathmandu Metro 15 - Swayambhu Area - Swayambhu - Thulobharyang</th>
-      <td><EditIcon/> <DeleteOutlineOutlinedIcon/></td>
-     
-    </tr>
-    <tr>
-      <th scope="row">769, Industrial, West Chicago, IL 60185, USA</th>
-      <td><EditIcon/> <DeleteOutlineOutlinedIcon/></td>
-      
-    </tr>
-    <tr>
-      <th scope="row">514 S. Magnolia St. Orlando, FL 32806, USA    </th>
-      <td><EditIcon/> <DeleteOutlineOutlinedIcon/></td>
-     
-    </tr>
-    
+ {userAddress.map((Address,index)=> Address != null ?  <tr key={index}>
+ <th scope="row">
+  { `${Address.region} - ${Address.city}-${Address.area} - ${Address.address} ${console.log(Address._id)}`}</th>
+ <td><EditIcon/> <DeleteOutlineOutlinedIcon onClick={() => deleteAddress(Address._id)}/></td>
+
+</tr>:null)}
+
+       
+   
   </tbody>
   
 </table>
