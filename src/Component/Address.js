@@ -12,7 +12,8 @@ import LocationModal from './LocationModal';
 function Address() {
   
   const deleteAddress = (id) => {
-    fetch("/user/deleteAddress/" + id)
+    axios
+      .put("/user/deleteAddress/" + id)
       .then(res=>console.log(res))
       .catch((err) => console.log(err));
   };
@@ -34,7 +35,7 @@ function Address() {
   <tbody>
  {userAddress.map((Address,index)=> Address != null ?  <tr key={index}>
  <th scope="row">
-  { `${Address.region} - ${Address.city}-${Address.area} - ${Address.address} ${console.log(Address._id)}`}</th>
+  { `${Address.region} - ${Address.city}-${Address.area} - ${Address.address}`}</th>
  <td><EditIcon/> <DeleteOutlineOutlinedIcon onClick={() => deleteAddress(Address._id)}/></td>
 
 </tr>:null)}
