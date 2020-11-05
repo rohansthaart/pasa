@@ -39,6 +39,24 @@ export default function SigninComponent() {
         }
       });
   };
+  const resetPassword = () => {
+    if (email.length === 0)
+      ToastsStore.error("Please fill up your email column");
+    else {
+      fetch("/user/requestResetPassword", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      })
+        .then((res) => res.json())
+        .then((res) => {
+          ToastsStore.info(res.message);
+        })
+        .catch((err) => console.log(err));
+    }
+  };
   return (
     <>
       <div class="card" style={{ width: 550 }}>
@@ -63,7 +81,9 @@ export default function SigninComponent() {
               />
             </div>
 
-            <span className="fg-text">Forgot Password?</span>
+            <span className="fg-text" onClick={resetPassword}>
+              Forgot Password?
+            </span>
             <div className="d-flex justify-content-end">
               {loading ? (
                 <CircularProgress color="secondary" />

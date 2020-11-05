@@ -40,6 +40,24 @@ export default function SellerSigninComponent() {
         }
       });
   };
+  const resetPassword = () => {
+    if (email.length === 0)
+      ToastsStore.error("Please fill up your email column");
+    else {
+      fetch("/seller/requestResetPassword", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      })
+        .then((res) => res.json())
+        .then((res) => {
+          ToastsStore.info(res.message);
+        })
+        .catch((err) => console.log(err));
+    }
+  };
   return (
     <div>
       <Paper className="seller-signin">
@@ -67,7 +85,9 @@ export default function SellerSigninComponent() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </Form.Group>
-          <p className="forgot-text">Forgot Password?</p>
+          <p className="forgot-text" onClick={resetPassword}>
+            Forgot Password?
+          </p>
           {loading ? (
             <Spinner animation="border" role="status">
               <span className="sr-only">Loading...</span>
