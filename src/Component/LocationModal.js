@@ -49,7 +49,7 @@ function LocationModal({ modalVisible, closeModal }) {
         address: address,
       }),
     })
-      .then((res) => res.json())
+      .then((res) => res.json()) 
       .then((result) => {
         result.status === 200
           ? ToastsStore.success(result.message)
