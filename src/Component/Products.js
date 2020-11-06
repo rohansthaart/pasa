@@ -31,7 +31,8 @@ function Products() {
             url={product.image[0]}
             discount = {product.discount}
             rating = {avgRating}
-            
+            width='auto'
+            height='100%'
           /> 
           </div>
           

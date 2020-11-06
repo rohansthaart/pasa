@@ -31,7 +31,7 @@ function SingleProduct(props) {
     }
   }
   return (
-    <div className="card single-card" style={{ width: "100%", height: "100%",marginBottom:'15px'}}>
+    <div className="card single-card" style={{ width: props.width, height: props.height,marginBottom:'15px'}}>
       <Link to={`/product/${props.id}`}><img
         src={props.url}
         style={{ objectFit: "cover", height: "100%", width: "100%" }}

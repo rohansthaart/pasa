@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Modal, Button, Row, Col, Form,InputGroup,FormControl } from "react-bootstrap";
 import { ToastsContainer, ToastsStore } from "react-toasts";
 import { useProduct } from "../../Context/ProductContext";
 import { Spinner } from "react-bootstrap";
+import { Categorys } from "./CategoryOption";
 
 export default function CreateProductModal({ modalVisible, closeModal }) {
   
@@ -12,8 +13,8 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
   const [productName, setProductName] = useState("");
   const [price, setPrice] = useState("");
   const [discount, setDiscount] = useState("");
-  const [category, setCategory] = useState("Clothes");
-  const [subCategory, setSubCategory] = useState("Others");
+  const [category, setCategory] = useState("");
+  const [subCategory, setSubCategory] = useState("");
   const [description, setDescription] = useState("");
   const [pic, setPic] = useState(null);
   const [image, setImage] = useState([]);
@@ -23,6 +24,27 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
   const [subSubCategory, setSubSubCategory] = useState("");
   const [brand, setBrand] = useState("");
   const [toggle,setToggle]= useState('false');
+  const [subOptions,setSubOptions]= useState([]);
+  const [subSubOptions, setSubSubOptions]= useState([]);
+  
+  useEffect(()=>{
+    if(category.length !== 0){
+      const filteredSub = Categorys
+        .filter((su)=>su.category=== category)[0]
+        .subCategorys.map((sub)=>sub.subCatageory);
+        setSubOptions(filteredSub)
+    }
+  },[category])
+
+  useEffect(()=>{
+    if(subCategory.length !== 0){
+      const filteredSubSub = Categorys
+        .filter((cu)=>cu.category=== category)[0]
+        .subCategorys.filter((s)=>s.subCatageory===subCategory)[0];
+        setSubSubOptions(filteredSubSub.subSubCategory)
+    }
+  },[subCategory])
+
 
 
 
@@ -139,18 +161,11 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
                   onChange={(e) => setCategory(e.target.value)}
                 >
                   <option selected disabled>Select Category</option>
-                  <option>Women's Fashion</option>
-                  <option>Men's Fashion</option>
-                  <option>Electrionics</option>
-                  <option>Toys</option>
-                  <option>Home</option>
-                  <option>Beauty</option>
-                  <option>Kids</option>
-                  <option>Vintage</option>
-                  <option>Sports</option>
-                  <option>Handmade</option>
-                  <option>Music Instrument</option>
-                  <option>Groceries</option>
+                  {Categorys.map((cata)=>(
+                    <option>{cata.category}</option>
+                  ))}
+                  
+                  
                 </Form.Control>
               </Col>
               <Col>
@@ -159,173 +174,11 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
                   as="select"
                   onChange={(e) => setSubCategory(e.target.value)}
                 ><option disabled selected>Sub-Category</option>
-                  {category === "Women's Fashion" ? (
-                    <>
+                  {subOptions.map((sub,i)=>(
 
-                      <option>Women's Handbags</option>
-                      <option>Shoes</option>
-                      <option>Athletic Apparel</option>
-                      <option>Tops & Blouses</option>
-                      <option>Jewelry</option>
-                      <option>Women's Accessories</option>
-                      <option>Dresses</option>
-                      <option>Sweaters</option>
-                      <option>Coats & Jackets</option>
-                      <option>Underwear</option>
-                      <option>Traditional Clothing</option>
-                      <option>Jeans</option>
-                      <option>Others</option>
-                    </>
-                  ) : category === "Men's Fashion" ? (
-                    <>
-                      <option>Men's Accessories</option>
-                      <option>Shoes</option>
-                      <option>Athletic Apparel</option>
-                      <option>Tops</option>
-                      <option>Shorts</option>
-                      <option>Jeans</option>
-                      <option>Sweats & Hoodies</option>
-                      <option>Coats & Jackets</option>
-                      <option>Underwear</option>
-                      <option>Traditional Clothing</option>
-                      <option>Others</option>
-                    </>
-                  ) : category === "Electrionics" ? (
-                    <>
-                      <option>Cell Phones & Accessories</option>
-                      <option>Computers & Laptops</option>
-                      <option>Tablets</option>
-                      <option>Video Games & Consoles</option>
-                      <option>Werables</option>
-                      <option>Headphones</option>
-                      <option>Camera & Photography</option>
-                      <option>Media</option>
-                      <option>Speakers & Audio</option>
-                      <option>TV & Videos</option>
-                      <option>Others</option>
-                    </>
-                  ) : category === "Toys" ? (
-                    <>
-                      <option>Collectibles & Hobbies</option>
-                      <option>Action Figures & Accessories</option>
-                      <option>Dolls & Accessories</option>
-                      <option>Vintage & Antique Toys</option>
-                      <option>Trading Cards</option>
-                      <option>Stuffed Animals & Plush</option>
-                      <option>Building Toys</option>
-                      <option>Arts & Crafts</option>
-                      <option>Games & Puzzles</option>
-                      <option>Remote Control Toys & Vehicles</option>
-                      <option>Others</option>
-                    </>
-                  ) : category === "Accessories" ? (
-                    <>
-                      <option>Sunglasses</option>
-                      <option>Watches</option>
-                      <option>Necklaces</option>
-                      <option>Others</option>
-                    </>
-                  ) : category === "Home" ? (
-                    <>
-                      <option>Kitchen & Dining</option>
-                      <option>Home Decor</option>
-                      <option>Seasonal Decor</option>
-                      <option>Home Appliances</option>
-                      <option>Bedding</option>
-                      <option>Storage & Organization</option>
-                      <option>Cleaning Supplies</option>
-                      <option>Artwork</option>
-                      <option>Furniture</option>
-                      <option>Bath</option>
-                      <option>Others</option>
-                    </>
-                  ) : category === "Beauty" ? (
-                    <>
-                      <option>Makeup</option>
-                      <option>Fragrance</option>
-                      <option>Skin Care</option>
-                      <option>Tools & Accessories</option>
-                      <option>Hair Care</option>
-                      <option>Bath & Body</option>
-                      <option>Other</option>
-                    </>
-                  ) : category === "Groceries" ? (
-                    <>
-                      <option>Beverages</option>
-                      <option>Breakfast & Snacks</option>
-                      <option>Chocolates</option>
-                      <option>Cooking Ingredients</option>
-                      <option>Wines,Beers & Spirits</option>
-                      <option>Others</option>
-                    </>
-                  ) : category === "Kids" ? (
-                    <>
-                      <option>Girls Dress</option>
-                      <option>Girls Tops & t-shirts</option>
-                      <option>Girls Bottoms</option>
-                      <option>Girls One-pieces</option>
-                      <option>Girls Accessories</option>
-                      <option>Girls Shoes</option>
-                      <option>Boys Tops & t-shirts</option>
-                      <option>Boys Bottoms</option>
-                      <option>Boys One-pieces</option>
-                      <option>Boys Accessories</option>
-                      <option>Boys Shoes</option>
-                      <option>Others</option>
-                    </>
-                  ) : category === "Vintage" ? (
-                    <>
-                      <option>Bags & Purses</option>
-                      <option>Books</option>
-                      <option>Antiques</option>
-                      <option>Jewelry</option>
-                      <option>Books</option>
-                      <option>Electronics</option>
-                      <option>Accessories</option>
-                      <option>Serving Pieces</option>
-                      <option>Supplies</option>
-                      <option>Clothing</option>
-                      <option>Houseware</option>
-                      <option>Others</option>
-                    </>
-                  ) : category === "Sports" ? (
-                    <>
-                      <option>Outdoors</option>
-                      <option>Exercise</option>
-                      <option>Fan Shop</option>
-                      <option>Team Shops</option>
-                      <option>Cricket</option>
-                      <option>Apparel</option>
-                      <option>Footwear</option>
-                      <option>Others</option>
-                    </>
-                  ) : category === "Music Instrument" ? (
-                    <>
-                      <option>Guitar</option>
-                      <option>Paino</option>
-                      <option>Violin</option>
-                      <option>Drums</option>
-                      <option>Flute</option>
-                      <option>Tabala</option>
-                      <option>Madal</option>
-                      <option>Others</option>
-                    </>
-                  ) : category === "Handmade" ? (
-                    <>
-                      <option>Pashmina</option>
-                      <option>Khukuri</option>
-                      <option>Clay Products</option>
-                      <option>Handwoven Nepali Dhaka</option>
-                      <option>Lokta Paper Products</option>
-                      <option>Nepali Jewelry</option>
-                      <option>Thanka Paintings</option>
-                      <option>Others</option>
-                    </>
-                  ) : (
-                    <>
-                      <option>Others</option>
-                    </>
-                  )}
+                  <option key={i}>{sub}</option>
+                  ))}
+                
                 </Form.Control>
               </Col>
             </Row>
@@ -338,209 +191,23 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
                   onChange={(e) => setSubSubCategory(e.target.value)}
                 >
                   <option disabled selected>Select Sub-Sub-Category</option>
-                  {subCategory === "Women's Handbags" ? (
-                    <>
-                      <option>Backpacks</option>
-                      <option>Cosmetic Bags</option>
-                      <option>Hobo Bags</option>
-                      <option>CrossbodyBags</option>
-                      <option>Satchels</option>
-                      <option>Shoulder Bags</option>
-                      <option>Tote Bags</option>
-                      <option>Waist Bags & Fanny Packs</option>
-                      <option>Messenger Bags</option>
-                      <option>Bucket Bags</option>
-                      <option>Others</option>
-                    </>
-                  ) : subCategory === "Shoes" ? (
-                    <>
-                      <option>Athletic Shoes</option>
-                      <option>Boots</option>
-                      <option>Fashion Sneakers</option>
-                      <option>Flats</option>
-                      <option>Sandals</option>
-                      <option>Slippers</option>
-                      <option>Others</option>
-                    </>
-                  ) : subCategory === "Athletic Apparel" ? (
-                    <>
-                      <option>Jackets</option>
-                      <option>Jerseys</option>
-                      <option>Pants,Tights,Leggings</option>
-                      <option>Shirts & Tops</option>
-                      <option>Shorts</option>
-                      <option>Skirts,Skorts & Dresses</option>
-                      <option>Socks</option>
-                      <option>Tracksuits & Sweats</option>
-                      <option>Others</option>
-                    </>
-                  ) : subCategory === "Shoes" ? (
-                    <>
-                      <option>Athletic Shoes</option>
-                      <option>Boots</option>
-                      <option>Fashion Sneakers</option>
-                      <option>Flats</option>
-                      <option>Sandals</option>
-                      <option>Slippers</option>
-                      <option>Work & Safety</option>
-                      <option>Outdoor</option>
-                      <option>Others</option>
-                    </>
-                  ) : subCategory === "Tops & Blouses" ? (
-                    <>
-                      <option>Blouses</option>
-                      <option>Button-down</option>
-                      <option>Sports Bra</option>
-                      <option>Halters</option>
-                      <option>Knit Tops</option>
-                      <option>Polo Shirts</option>
-                      <option>T-Shirts</option>
-                      <option>Tank,Cami</option>
-                      <option>Others</option>
-                    </>
-                  ) : subCategory === "Jewelry" ? (
-                    <>
-                      <option>Bracelets</option>
-                      <option>Earrings</option>
-                      <option>Necklaces</option>
-                      <option>Rings</option>
-                      <option>Brooches</option>
-                      <option>Pendants</option>
-                      <option>Watches</option>
-                      <option>Others</option>
-                    </>
-                  ) : subCategory === "Women's Accessories" ? (
-                    <>
-                      <option>Belts</option>
-                      <option>Hair Accessories</option>
-                      <option>Hats</option>
-                      <option>Scarves & Wraps</option>
-                      <option>Sunglasses</option>
-                      <option>Wallets</option>
-                      <option>Watches</option>
-                      <option>Others</option>
-                    </>
-                  ) : subCategory === "Dresses" ? (
-                    <>
-                      <option>Above Knee,Mini</option>
-                      <option>High Low</option>
-                      <option>Maxi</option>
-                      <option>Knee-length</option>
-                      <option>Midi</option>
-                      <option>Jumpsuits & Rompers</option>
-                      <option>Others</option>
-                    </>
-                  ) : subCategory === "Sweaters" ? (
-                    <>
-                      <option>Cardigans</option>
-                      <option>Collared</option>
-                      <option>Cowl Neck</option>
-                      <option>Crewneck</option>
-                      <option>Full-zip</option>
-                      <option>Hooded</option>
-                      <option>Panchos</option>
-                      <option>V-neck</option>
-                      <option>Vest,Sleeveless</option>
-                      <option>Others</option>
-                    </>
-                  ) : subCategory === "Coats & Jackets" ? (
-                    <>
-                      <option>Fleece Jackets</option>
-                      <option>Jean Jackets</option>
-                      <option>Motorcycle Jackets</option>
-                      <option>Parkas</option>
-                      <option>Puffers</option>
-                      <option>Trench Coats</option>
-                      <option>Vests</option>
-                      <option>Windbreakers</option>
-                      <option>Rainwear</option>
-                      <option>Flight/Bomber Jackets</option>
-                      <option>Others</option>
-                    </>
-                  ) : subCategory === "Jeans" ? (
-                    <>
-                      <option>Boot Cut</option>
-                      <option>Boyfriend</option>
-                      <option>Capri, Cropped</option>
-                      <option>Flare</option>
-                      <option>Leggings & Jeggings</option>
-                      <option>Overalls</option>
-                      <option>Slim,Skinny</option>
-                      <option>Classic, Straight Leg</option>
-                      <option>Wide-leg</option>
-                      <option>Baggy,Loose</option>
-                      <option>Cargo</option>
-                      <option>Carpenter</option>
-                      <option>Relaxed</option>
-                      <option>Others</option>
-                    </>
-                  ) : subCategory === "Tops" ? (
-                    <>
-                      <option>Button-Front</option>
-                      <option>Dress Shirts</option>
-                      <option>Henleys</option>
-                      <option>T-Shirts</option>
-                      <option>Tanks</option>
-                      <option>Turtlenecks</option>
-
-                      <option>Others</option>
-                    </>
-                  ) : subCategory === "Men's Accessories" ? (
-                    <>
-                      <option>Backpacks,Bags & Briefcases</option>
-                      <option>Belts</option>
-                      <option>Hats</option>
-                      <option>Sunglasses</option>
-                      <option>Ties</option>
-                      <option>Wallets</option>
-                      <option>Watches</option>
-                      <option>Others</option>
-                    </>
-                  ) : subCategory === "Sweats & Hoodies" ? (
-                    <>
-                      <option>Hoodies</option>
-                      <option>Sweatshirt,Pullover</option>
-                      <option>Track & Sweat Pants</option>
-                      <option>Tracks & Sweat Suits</option>
-                      <option>Track Jackts</option>
-                      <option>Others</option>
-                    </>
-                  ) : subCategory === "Shorts" ? (
-                    <>
-                      <option>Athletic</option>
-                      <option>Cargo</option>
-                      <option>Casual Shorts</option>
-                      <option>Denim</option>
-                      <option>Dress Shorts</option>
-                      <option>Khakis, Chinos</option>
-                      <option>Others</option>
-                    </>
-                  ) : (
-                    <>
-                      <option>Others</option>
-                    </>
-                  )}
+                  {subSubOptions.map((subSub,i)=>(
+                    <option key={i}>{subSub}</option>
+                  ))}
                 </Form.Control>
               </Col>
               <Col>
-                <Form.Label>Select Brand</Form.Label>
+                <Form.Label>Brand Name</Form.Label>
                 <Form.Control
-                  as="select"
+                  type="text"
+                  placeholder="e.g. Apple"
                   onChange={(e) => setBrand(e.target.value)}
+                  
                 >
-                  <option selected disabled>Select Brand</option>
-                  <option>H&M</option>
-                  <option>Apple</option>
-                  <option>Samsung</option>
-                  <option>Lenovo </option>
-                  <option>ASUS</option>
-                  <option>POLO</option>
-                  <option>NIKE</option>
-                  <option>CASIO</option>
-                  <option>DELL</option>
-                  <option>ACER</option>
-                  <option>Others</option>
+             
+                  
                 </Form.Control>
+                
               </Col>
             </Row>
 

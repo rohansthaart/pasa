@@ -1,7 +1,9 @@
 import React, { useState ,useContext} from "react";
+import CssBaseline from '@material-ui/core/CssBaseline';
 
-import axios from "axios";
-import "./DetailedItem.css";
+import Container from '@material-ui/core/Container';
+import HomeWorkOutlinedIcon from "@material-ui/icons/HomeWorkOutlined";
+import VerifiedUserOutlinedIcon from "@material-ui/icons/VerifiedUserOutlined";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import IndeterminateCheckBoxOutlinedIcon from "@material-ui/icons/IndeterminateCheckBoxOutlined";
 import AddBoxOutlinedIcon from "@material-ui/icons/AddBoxOutlined";
@@ -12,16 +14,19 @@ import Box from "@material-ui/core/Box";
 import LocationOnOutlinedIcon from "@material-ui/icons/LocationOnOutlined";
 import MoneyOutlinedIcon from "@material-ui/icons/MoneyOutlined";
 import { useParams } from "react-router-dom";
+import axios from "axios";
+
+import "./DetailedItem.css";
 import { useProduct } from "../Context/ProductContext";
 import {useUser} from "../Context/UserContext";
 import Specification from "./Specification";
-import HomeWorkOutlinedIcon from "@material-ui/icons/HomeWorkOutlined";
-import VerifiedUserOutlinedIcon from "@material-ui/icons/VerifiedUserOutlined";
 import MobileHeader from "./MobileHeader"
 import Footer from "./Footer";
 import Review from "./Review";
 import {cartContext} from '../Context/useCart'
-import Alert from 'react-bootstrap/Alert'
+
+
+
 function DetailedItem(props) {
   const [addReview, setAddReview] = useState("");
   const [value, setValue] = React.useState(0);
@@ -102,6 +107,9 @@ function DetailedItem(props) {
 
 
   return (
+    <React.Fragment>
+    <CssBaseline />
+    <Container maxWidth="xl">
     <div className="detail-specification ">
       <div className="row">
         {/*main image*/}
@@ -143,7 +151,7 @@ function DetailedItem(props) {
         </div>
         <div className="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 card">
           <div className="product_title">
-            <h3>{props.name}</h3>
+            <h3 style={{margin:'15px'}}>{props.name}</h3>
           </div>
           {/*Revie*/}
           <Box component="fieldset" mb={3} borderColor="transparent">
@@ -251,7 +259,7 @@ function DetailedItem(props) {
         </div>
       </div>
 
-      <div className="review-specification container">
+      <div className="review-specification ">
         <div>
           <button
             className="btn"
@@ -278,7 +286,7 @@ function DetailedItem(props) {
               </>
             ))}
 
-            <div>
+            <div className="">
               <h4>Leave a review</h4>
               <form onSubmit={uploadReview}>
                 <input
@@ -314,6 +322,8 @@ function DetailedItem(props) {
       <Footer />
       <MobileHeader/>
     </div>
+    </Container>
+    </React.Fragment>
   );
 }
 

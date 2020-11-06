@@ -2,17 +2,19 @@ import React from "react";
 import SingleProduct from "./SingleProduct";
 import { useParams } from "react-router-dom";
 import { useProduct } from "../Context/ProductContext";
-
+import "./QueryProduct.css"
 export default function QueryPeoducts() {
   const { products } = useProduct();
   const { categoryName } = useParams();
   const searchedProducts = products.filter((p) => p.category === categoryName);
   console.log(searchedProducts);
   return (
-    <div className="container">
-      <h1 style={{ color: "green" }}>
-        <u>{categoryName}</u>
-      </h1>
+    <div className="">
+      <div className="queryTitle" >
+      <h4 className="queryHeader">
+        {categoryName}
+      </h4>
+      </div>
       {searchedProducts.length === 0 ? (
         <div>
           <h4 style={{ color: "red" }}>
@@ -30,14 +32,16 @@ export default function QueryPeoducts() {
             var avgRating = sum / rating.length;
             console.log("AVG Rating", avgRating);
             return (
-              <div className="col-lg-2 col-md-3 col-sm-4 col-6">
-                <SingleProduct
+              <div className="col-lg-2 col-md-3 col-sm-4 col-6 ">
+                <SingleProduct 
                   id={product._id}
                   name={product.name}
                   price={product.unitPrice}
                   url={product.image[0]}
                   discount={product.discount}
                   rating={avgRating}
+                  width='auto'
+                  height='auto'
                 />
               </div>
             );

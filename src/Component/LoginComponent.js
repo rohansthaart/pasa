@@ -8,11 +8,17 @@ import SellerSignupComponent from "./SellerComponent/SellerSignupComponent";
 import { Button } from "react-bootstrap";
 
 export default function LoginComponent() {
+
   const [seller, setSeller] = useState(false);
   if (!seller) {
     return (
       <>
-        <div className="container">
+        <div className="">
+          <div className='title'>
+          <h4 className="header">
+       Home / Login / User
+      </h4>
+      </div>
           <div className='row'>
             <div className='col justify-content-center'>
           <SigninComponent />
