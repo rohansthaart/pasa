@@ -6,7 +6,7 @@ import { useUser } from "../Context/UserContext";
 
 import { addresses } from "./AddressesOption";
 
-function LocationModal({ modalVisible, closeModal }) {
+function LocationModal({ modalVisible, closeModal, changed, setChanged }) {
   const { setUser, user } = useUser();
 
   const [region, setRegion] = useState("");
@@ -49,12 +49,13 @@ function LocationModal({ modalVisible, closeModal }) {
         address: address,
       }),
     })
-      .then((res) => res.json()) 
+      .then((res) => res.json())
       .then((result) => {
         result.status === 200
           ? ToastsStore.success(result.message)
           : ToastsStore.error(result.message);
         closeModal();
+        setChanged(!changed);
         setUser(!user);
         setLoading(false);
       })
