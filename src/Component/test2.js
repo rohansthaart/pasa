@@ -2,46 +2,48 @@ import React from 'react'
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from "@material-ui/core/Container";
 import Grid from '@material-ui/core/Grid';
-import Test from './test'
+import './test2.css'
 function teste() {
     return (
-        <div style={{marginTop:'15px',backgroundColor:'#fff'}}>
-        <React.Fragment >
-      <CssBaseline />
-     <Container>
-      <Grid container spacing={3}>
-      <Grid item lg={12} xl={2} md={12} sm={12}>
-          <h3>Kitchen</h3>
-        <Test/></Grid>
-        <Grid title= "this is title" item lg={5} xl={4} md={5} sm={12}>
-          
-        <img src="https://firebasestorage.googleapis.com/v0/b/nqt-theme.appspot.com/o/bn-cate2.jpg?alt=media&amp;token=e81bc62b-cea5-49e3-9e32-c1451b407114" className="" title="" alt="" style={{width:'100%',height:'auto',verticalAlign: 'middle',borderStyle:'none'}} />
-       
-    
-		
-        </Grid>
-        <Grid item lg={7} xl={6} md={7} sm={12} >
-        <Grid container spacing={2}>
-        <Grid item lg={6}>
-        <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/nqt-theme.appspot.com/o/bn-cate2-1.jpg?alt=media&amp;token=396f7aad-d9f1-4932-82a6-650b23278710" alt="Utensil &amp; Gadget" style={{width:'100%',height:'auto',verticalAlign: 'middle',borderStyle:'none'}}/>
-        </Grid>
-        <Grid item lg={6}>
-        <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/nqt-theme.appspot.com/o/bn-cate2-1.jpg?alt=media&amp;token=396f7aad-d9f1-4932-82a6-650b23278710" alt="Utensil &amp; Gadget" style={{width:'100%',height:'auto',verticalAlign: 'middle',borderStyle:'none'}}/>
-        </Grid>
-        </Grid>
-        <Grid container spacing={2}>
-        <Grid item lg={6}>
-        <img class="img-fluid" src="https://akm-img-a-in.tosshub.com/sites/btmt/images/stories/lamborghini_660_140220101539.jpg" alt="Utensil &amp; Gadget" style={{width:'100%',height:'auto',verticalAlign: 'middle',borderStyle:'none'}}/>
-        </Grid>
-        <Grid item lg={6}>
-        <img class="img-fluid" src="https://akm-img-a-in.tosshub.com/sites/btmt/images/stories/lamborghini_660_140220101539.jpg" alt="Utensil &amp; Gadget" style={{width:'100%',height:'auto',verticalAlign: 'middle',borderStyle:'none'}}/>
-        </Grid>
+        <div style={{marginTop:'15px', display:'flex',alignItems:'center'}}>
         
+     
+      <Grid container spacing={3}>
+      <Grid item lg={4} xl={4} md={4} >
+        <div className='thumbnail'>
+        <img src='https://firebasestorage.googleapis.com/v0/b/nqt-theme.appspot.com/o/h2-bn-4.jpg?alt=media&token=dea76b40-1653-4350-9807-bb5eb5ee7c23' style={{width:'100%',height:'100%'}}/>
+        <div className='caption'>
+        <h7>ELECTRONICS</h7>
+        <h3>Be movie <br/> night ready.</h3><br/>
+        <p>Starting at</p>
+        <h4>$599.99</h4>
+        </div>
+        </div> 
+        </Grid>
+        <Grid item lg={4} xl={4} md={4} >
+        <div className='thumbnail'>
+        <img src='https://firebasestorage.googleapis.com/v0/b/nqt-theme.appspot.com/o/h2-bn-5.jpg?alt=media&token=7f1b9cdf-3123-41f2-9d94-d69c5e890e59' style={{width:'100%',height:'100%'}}/>
+        <div className='caption'>
+        <h7>BEST SELLER</h7>
+        <h3>Luxury<br/>Watches</h3><br/>
+        <p>Starting at</p>
+        <h4>$599.99</h4>
+        </div>
+        </div> 
+        </Grid>
+        <Grid item lg={4} xl={4} md={4} >
+        <div className='thumbnail'>
+        <img src='https://firebasestorage.googleapis.com/v0/b/nqt-theme.appspot.com/o/h2-bn-6.jpg?alt=media&token=87e06709-8c5b-4713-a4d4-1e692daffe79' style={{width:'100%',height:'100%'}}/>
+        <div className='caption'>
+        <h7>NEW STEP</h7>
+        <h3>Apple <br/> iPhone</h3><br/>
+        <p>Starting at</p>
+        <h4>$599.99</h4>
+        </div>
+        </div> 
         </Grid>
           </Grid>
-          </Grid>
-          </Container>
-      </React.Fragment>
+        
       </div>
     )
 }

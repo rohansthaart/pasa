@@ -11,9 +11,8 @@ import {Categorys} from './SellerComponent/CategoryOption'
 export default function test() {
  
   return (
-      <div>
-          <h6>Categorys</h6>  
-          <TreeView style={{height:'240',flexGrow:'1',maxWidth:'200px'}}
+      
+          <TreeView style={{height:'240',maxWidth:'200px',flexGrow:'1'}}
       
       defaultCollapseIcon={<ExpandMoreIcon />}
       defaultExpandIcon={<ChevronRightIcon />}
@@ -27,6 +26,6 @@ export default function test() {
         </TreeItem>
         ))}
        </TreeView>
-       </div>
+       
   );
 }

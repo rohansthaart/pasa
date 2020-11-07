@@ -6,6 +6,7 @@ import {Link} from "react-router-dom";
 import {cartContext} from '../Context/useCart'
 import CartItem from "./CartItem";
 
+
 function SingleProduct(props) {
   const [value, setValue] = React.useState(0);
   const [cardItem,setCardItem]= useContext(cartContext);
@@ -31,7 +32,8 @@ function SingleProduct(props) {
     }
   }
   return (
-    <div className="card single-card" style={{ width: props.width, height: props.height,marginBottom:'15px'}}>
+    
+    <div className="card single-card" style={{ width: '100%', height:'100%'}}>
       <Link to={`/product/${props.id}`}><img
         src={props.url}
         style={{ objectFit: "cover", height: "100%", width: "100%" }}
@@ -59,6 +61,7 @@ function SingleProduct(props) {
         <Rating className='fixed-rating' name="read-only half-rating"  size="small"  precision={0.1} value={props.rating} readOnly />
       
     </div>
+    
   );
 }
 
