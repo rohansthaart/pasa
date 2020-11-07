@@ -9,7 +9,7 @@ export default function VerticalTabs() {
   return (
     <div className="row ">
       <br />
-      <div className="col-3 sideTab">
+      <div className="col-lg-2 col-md-2 col-sm-12 sideTab">
         {/* <div className="center">
           <AvatarLogin />
         </div>
@@ -57,7 +57,7 @@ export default function VerticalTabs() {
           </a>
         </div>
       </div>
-      <div className="col-9">
+      <div className="col-lg-10 col-md-10 col-sm-12">
         <div className="tab-content" id="v-pills-tabContent">
           <div
             className="tab-pane fade show active"

@@ -1,0 +1,23 @@
+.featBox {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.featCenter {
+  text-align: center;
+}
+
+.featDes {
+  font-size: 14px;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.featTitle {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.2;
+}

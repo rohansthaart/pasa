@@ -59,7 +59,7 @@ export default function SigninComponent() {
   };
   return (
     <>
-      <div class="card" style={{ width: 550 }}>
+      <div class="card" style={{ width: '100%',height:'450px',marginBottom:'15px'}}>
         <div class="card-body">
           <h1>SignIn</h1>
           <h2>Welcome, back!</h2>

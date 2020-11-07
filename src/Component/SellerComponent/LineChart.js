@@ -21,8 +21,8 @@ export default function LineChart() {
         options={options}
         series={series}
         type="area"
-        width="500"
-        height="265"
+        width="100%"
+        height="auto"
       />
     </div>
   );
