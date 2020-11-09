@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React from "react";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
@@ -13,6 +13,7 @@ import Test3 from "./test3";
 import Test2 from "./test2";
 import { useProduct } from "../Context/ProductContext";
 import { Button } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
 
 export default function HomeComponent() {
   const {
@@ -21,11 +22,7 @@ export default function HomeComponent() {
     newArrivalProducts,
     dealsOfWeek,
   } = useProduct();
-  const dealsOfWeekProducts = products
-    ? products
-        .sort((p1, p2) => parseInt(p1.discount) - parseInt(p2.discount))
-        .reverse()
-    : [];
+  const history = useHistory();
   return (
     <React.Fragment>
       <CssBaseline />
@@ -75,6 +72,18 @@ export default function HomeComponent() {
                     );
                   })}
                 </div>
+                <br />
+                <Button
+                  style={{ float: "right" }}
+                  fullWidth
+                  variant="contained"
+                  color="secondary"
+                  onClick={() =>
+                    history.push("/products/featured/Top-Review-Products")
+                  }
+                >
+                  See more
+                </Button>
               </div>
             </div>
           </Grid>
@@ -96,7 +105,11 @@ export default function HomeComponent() {
               <hr />
             </div>
             <Products products={[...dealsOfWeek].splice(0, 6)} />
-            <Button style={{ float: "right" }} color="secondary">
+            <Button
+              style={{ float: "right" }}
+              color="secondary"
+              onClick={() => history.push("/products/featured/Deals-of-Week")}
+            >
               See More
             </Button>
             <br />
@@ -121,7 +134,11 @@ export default function HomeComponent() {
             </div>
             <Products products={[...newArrivalProducts].splice(0, 6)} />
 
-            <Button style={{ float: "right" }} color="secondary">
+            <Button
+              style={{ float: "right" }}
+              color="secondary"
+              onClick={() => history.push("/products/featured/New-Arrival")}
+            >
               See More
             </Button>
             <br />
