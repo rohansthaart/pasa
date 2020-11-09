@@ -49,10 +49,10 @@ function SingleProduct(props) {
         >
           <h7>Rs.{props.price}</h7>
 
-          <p className='discount-percentage'> {props.discount}off</p>
+          {props.discount && <p className='discount-percentage'> {props.discount}off</p>}
         </div>
-        <div className="col-4 ">
-          
+      
+        <div className="col-4" >
           <ShoppingCartIcon fontSize="large" color="error"  onClick={addToCart}/>
         </div>
       </div>

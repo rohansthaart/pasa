@@ -3,10 +3,9 @@
   padding: 0px;
 }
 
-ul.ba {
-  list-style-type: none;
-  margin-left: 15%;
-  overflow: hidden;
+.ba {
+  margin-left: 15px;
+  display: inline-block;
 }
 
 .col-sm-1 {
@@ -68,4 +67,13 @@ ul.ba {
     display: block;
     margin: auto;
   }
+}
+
+.product_title {
+  margin-bottom: 3px;
+  font-size: 26px;
+  font-weight: 500;
+  color: #1a1a1a;
+  letter-spacing: 0.025em;
+  text-align: left;
 }

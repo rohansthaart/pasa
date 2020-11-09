@@ -11,6 +11,7 @@ import Footer from "./Footer"
 import Test from './test'
 import Test3 from './test3'
 import Test2 from './test2'
+
 import {useProduct} from '../Context/ProductContext'
 
 export default function HomeComponent() {
@@ -41,7 +42,7 @@ export default function HomeComponent() {
             console.log("AVG Rating",avgRating);
             return(
               
-              <div className="col-lg-6 col-md-3 col-sm-4 col-6 ">
+              <div className="col-lg-3 col-md-3 col-sm-4 col-6 col-xl-6" style={{padding:'15px'}}>
             
           <SingleProduct
           
@@ -49,10 +50,8 @@ export default function HomeComponent() {
             name={product.name}
             price={product.unitPrice}
             url={product.image[0]}
-            discount = {product.discount}
             rating = {avgRating}
-            width='auto'
-            height='100%'
+           
           /> 
           </div>
           
@@ -70,7 +69,7 @@ export default function HomeComponent() {
         </div>
         </Grid>
         
-        <Grid item lg={10} xl={9} xs={12}><TopCarousel /><br/>
+        <Grid item lg={10} xl={10} xs={12}><TopCarousel /><br/>
         
         <Test3/><br/>
         <Test2/><br/><br/>
@@ -80,6 +79,7 @@ export default function HomeComponent() {
           <hr/>
         </div>
         <Products /><br/><br/>
+        
         <div>
         
           <h4><LocalOfferIcon/>BEST SELLERS</h4>

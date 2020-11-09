@@ -5,8 +5,6 @@ import Container from '@material-ui/core/Container';
 import HomeWorkOutlinedIcon from "@material-ui/icons/HomeWorkOutlined";
 import VerifiedUserOutlinedIcon from "@material-ui/icons/VerifiedUserOutlined";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-import IndeterminateCheckBoxOutlinedIcon from "@material-ui/icons/IndeterminateCheckBoxOutlined";
-import AddBoxOutlinedIcon from "@material-ui/icons/AddBoxOutlined";
 import PaymentOutlinedIcon from "@material-ui/icons/PaymentOutlined";
 import Rating from "@material-ui/lab/Rating";
 import Typography from "@material-ui/core/Typography";
@@ -24,6 +22,7 @@ import MobileHeader from "./MobileHeader"
 import Footer from "./Footer";
 import Review from "./Review";
 import {cartContext} from '../Context/useCart'
+import Products from "./Products";
 
 
 
@@ -109,11 +108,11 @@ function DetailedItem(props) {
   return (
     <React.Fragment>
     <CssBaseline />
-    <Container maxWidth="xl">
+    <Container maxWidth="lg">
     <div className="detail-specification ">
       <div className="row">
         {/*main image*/}
-        <div className=" col-md-12 col-lg-12 col-xl-5">
+        <div className=" col-md-6 col-lg-6 col-xl-6">
           <div>
             <div id="myCarouselArticle" class="carousel " data-ride="false">
               <div style={{ padding: "0px" }}>
@@ -129,13 +128,10 @@ function DetailedItem(props) {
             </div>
           </div>
           <div className="">
-            <div id="slider-thumbs " style={{ marginTop: "5px" }}>
-              <ul class="reset-ul" style={{ marginLeft: "55px" }}>
+            <div id="" style={{ marginTop: "5px" }}>
+              <ul  style={{ marginLeft: "55px" }}>
                 {selectedProduct.image.map((product) => (
-                  <li
-                    className=""
-                    style={{ display: "inline", marginLeft: "5px" }}
-                  >
+                  <li className='ba'>
                     <a data-target="#myCarouselArticle" data-slide-to={"{0++}"}>
                       <img
                         class="img-fluid fit-image"
@@ -149,20 +145,21 @@ function DetailedItem(props) {
             </div>
           </div>
         </div>
-        <div className="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 card">
-          <div className="product_title">
-            <h3 style={{margin:'15px'}}>{props.name}</h3>
-          </div>
-          {/*Revie*/}
-          <Box component="fieldset" mb={3} borderColor="transparent">
-            <Typography component="legend">Review ({reviewer})</Typography>
-            <Rating
+        <div className="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 ">
+          
+            <h2 className="product_title">{props.name}</h2>
+          
+        
+        
+          <Rating
               name="half-rating-read"
               value={avgRating}
               readOnly
               precision={0.1}
-            />{" "}
-          </Box>
+            />
+            <Typography component="legend">Review ({reviewer})</Typography>
+            
+          
           <div className="brand-name">Brand:</div>
           <br />
           <div className="small-description">{detail}...</div>
@@ -172,27 +169,23 @@ function DetailedItem(props) {
             <h4>
               <span className="discount">Rs.2000 </span> -{props.discount}
             </h4>
-            <h4>6 stocks remaining</h4>
+            
           </div>
-          <div className="quantity mt-4">
-            Quantity:{" "}
-            <button
-              className="btn "
-              onClick={() => setCount(count - 1)}
-              disabled={count < 1 ? true : false}
-            >
-              <IndeterminateCheckBoxOutlinedIcon />
-            </button>
-            <strong>{count}</strong>
-            <button className="btn " onClick={() => setCount(count + 1)}>
-              <AddBoxOutlinedIcon />
-            </button>
-          </div>
+          <div className="buy-cart mt-4 center">
+              <button type="button" class="btn btn-outline-primary m-3 ">
+                <PaymentOutlinedIcon />
+                BUY IT NOW
+              </button>
+              <button type="button" class="btn btn-outline-success m-3" onClick={addToCart}>
+                <ShoppingCartIcon />
+                Add to Cart
+              </button>
+            </div>
         </div>
 
-        <div className="col-12 col-lg-6 col-md-6 col-xl-4 card">
+        <div className="col-12 col-lg-6 col-md-12 col-xl-12 card">
           <div>
-            <h3> Total: Rs.{count * props.price}</h3>
+           
             Delevery Options <br />
             <LocationOnOutlinedIcon />
             Bagmati,kathmandu Metro 22- Newroad Area,Newroad
@@ -229,16 +222,7 @@ function DetailedItem(props) {
               </div>
               <div className="col-4">Chat Now</div>
             </div>
-            <div className="buy-cart mt-4 center">
-              <button type="button" class="btn btn-outline-primary m-3 ">
-                <PaymentOutlinedIcon />
-                BUY IT NOW
-              </button>
-              <button type="button" class="btn btn-outline-success m-3" onClick={addToCart}>
-                <ShoppingCartIcon />
-                Add to Cart
-              </button>
-            </div>
+            
             <div className="row ">
               <div className="col">
                 <h7> Positive Seller Ratings</h7> <br />
@@ -319,10 +303,17 @@ function DetailedItem(props) {
         )}
       </div>
       <br />
-      <Footer />
+      
+        <h4>RELATED PRODUCTS</h4>
+        <hr/>
+        <Products/>
+        
+      
       <MobileHeader/>
     </div>
     </Container>
+    <Container maxWidth="xl"><Footer /></Container>
+    
     </React.Fragment>
   );
 }

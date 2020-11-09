@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useProduct } from "../Context/ProductContext";
 import SingleProduct from "./SingleProduct";
 import "./QueryProduct.css";
+import MobileHeader from './MobileHeader'
 export default function SubcategoryQurey() {
   const { name } = useParams();
   const { products } = useProduct();
@@ -48,6 +49,7 @@ export default function SubcategoryQurey() {
           })}
         </div>
       )}
+      <MobileHeader/>
     </div>
   );
 }

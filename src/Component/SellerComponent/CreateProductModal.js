@@ -12,7 +12,7 @@ export default function CreateProductModal({ modalVisible, closeModal }) {
   const { setChanged, changed } = useProduct();
   const [productName, setProductName] = useState("");
   const [price, setPrice] = useState("");
-  const [discount, setDiscount] = useState("");
+  const [discount, setDiscount] = useState(0);
   const [category, setCategory] = useState("");
   const [subCategory, setSubCategory] = useState("");
   const [description, setDescription] = useState("");

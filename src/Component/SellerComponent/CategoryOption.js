@@ -306,7 +306,7 @@ export const Categorys=[{
                 ]
         },
         {
-            subCatageory: " Computers & Laptops",
+            subCatageory: "Computers & Laptops",
             subSubCategory:[
                 "Components & Parts",
                 "Computer Accessories",
@@ -322,7 +322,7 @@ export const Categorys=[{
         {
             subCatageory: "Tablets",
             subSubCategory:[
-                "iPad/Tablet/Ebook Readers",
+                "iPad","Tablet","Ebook Readers",
                 "Tablet Accessories",
                 "Tablet Cases, Covers & Skins",
                 "Others",
