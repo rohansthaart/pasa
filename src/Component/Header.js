@@ -61,7 +61,7 @@ function Header() {
               </Link>
             </li>
             
-            <li className="dropdown nav-item d-none d-lg-block d-xl-block">
+            <li className="dropright nav-item d-none d-lg-block d-xl-block">
               <a href="#" className="nav-link">
                 Departments
               </a>

@@ -4,6 +4,10 @@ import { useParams } from "react-router-dom";
 import { useProduct } from "../Context/ProductContext";
 import "./QueryProduct.css"
 import MobileHeader from "./MobileHeader";
+import Typography from '@material-ui/core/Typography';
+import Breadcrumbs from '@material-ui/core/Breadcrumbs';
+import Link from '@material-ui/core/Link';
+
 export default function QueryPeoducts() {
   const { products } = useProduct();
   const { categoryName } = useParams();
@@ -11,10 +15,21 @@ export default function QueryPeoducts() {
   console.log(searchedProducts);
   return (
     <div className="">
-      <div className="queryTitle" >
+      <div className="queryTitle queryHeader" >
+      <Breadcrumbs aria-label="breadcrumb">
+      
+      <h4 className="queryHeader">
+        Home   /
+      </h4>
+     
+      
       <h4 className="queryHeader">
         {categoryName}
       </h4>
+    </Breadcrumbs>
+
+
+    
       </div>
       {searchedProducts.length === 0 ? (
         <div>

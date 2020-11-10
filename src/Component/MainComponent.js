@@ -22,6 +22,7 @@ import QueryProducts from "./QueryProducts";
 import TermsCon from "./Terms&Con";
 import CheckOut from "./Checkout";
 import SubcategoryQuery from "./SubcategoryQurey";
+import FeaturedProducts from "./FeaturedProducts";
 export default function MainComponent(props) {
   const products = useProduct().products;
   console.log(products);
@@ -63,6 +64,11 @@ export default function MainComponent(props) {
             path="/category/subCategory/:name"
             exact
             component={SubcategoryQuery}
+          />
+          <Route
+            path="/products/featured/:feature"
+            exact
+            component={FeaturedProducts}
           />
         </Switch>
       </div>
