@@ -23,6 +23,8 @@ import TermsCon from "./Terms&Con";
 import CheckOut from "./Checkout";
 import SubcategoryQuery from "./SubcategoryQurey";
 import FeaturedProducts from "./FeaturedProducts";
+import SubCategorySearch from "./SubCategorySearchResults";
+import SubCategorySearchResult from "./SubCategorySearchResults";
 export default function MainComponent(props) {
   const products = useProduct().products;
   console.log(products);
@@ -69,6 +71,11 @@ export default function MainComponent(props) {
             path="/products/featured/:feature"
             exact
             component={FeaturedProducts}
+          />
+          <Route
+            path="/category/sub-category/:name"
+            exact
+            component={SubCategorySearchResult}
           />
         </Switch>
       </div>
