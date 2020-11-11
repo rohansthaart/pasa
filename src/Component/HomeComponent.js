@@ -16,7 +16,6 @@ import { Button } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import Test4 from "./test4";
 
-
 export default function HomeComponent() {
   const {
     products,
@@ -59,7 +58,7 @@ export default function HomeComponent() {
                     var avgRating = sum / rating.length;
                     console.log("AVG Rating", avgRating);
                     return (
-                      <div className="col-lg-6 col-md-3 col-sm-4 col-6 ">
+                      <div className="col-lg-12 col-md-12 col-sm-12 col-12 ">
                         <SingleProduct
                           id={product._id}
                           name={product.name}
@@ -99,52 +98,53 @@ export default function HomeComponent() {
             <Test2 />
             <br />
             <br />
-            <br/>
-            <br/>
+            <br />
+            <br />
             <div>
               <h4>
                 <LocalOfferIcon />
-                DEALS OF WEEKS<Button
-              style={{ float: "right" }}
-              color="secondary"
-              onClick={() => history.push("/products/featured/Deals-of-Week")}
-            >
-              See More
-            </Button>
+                DEALS OF WEEKS
+                <Button
+                  style={{ float: "right" }}
+                  color="secondary"
+                  onClick={() =>
+                    history.push("/products/featured/Deals-of-Week")
+                  }
+                >
+                  See More
+                </Button>
               </h4>
               <hr />
             </div>
             <Products products={[...dealsOfWeek].splice(0, 6)} />
-            
+
             <br />
             <br />
-            
-            
 
             <br />
             <br />
             <div>
               <h4>
                 <LocalOfferIcon />
-                NEW ARRIVALS <Button
-              style={{ float: "right" }}
-              color="secondary"
-              onClick={() => history.push("/products/featured/New-Arrival")}
-            >
-              See More
-            </Button>
+                NEW ARRIVALS{" "}
+                <Button
+                  style={{ float: "right" }}
+                  color="secondary"
+                  onClick={() => history.push("/products/featured/New-Arrival")}
+                >
+                  See More
+                </Button>
               </h4>
               <hr />
             </div>
             <Products products={[...newArrivalProducts].splice(0, 6)} />
 
-           
             <br />
 
             <br />
           </Grid>
         </Grid>
-                 <Test4/>
+        <Test4 />
         <Footer />
         <MobileHeader />
       </Container>

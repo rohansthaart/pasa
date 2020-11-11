@@ -3,6 +3,7 @@ import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import Rating from "@material-ui/lab/Rating";
 import "./SingleProduct.css";
 import { Link } from "react-router-dom";
+import { Button } from "@material-ui/core";
 import { cartContext } from "../Context/useCart";
 import CartItem from "./CartItem";
 import { Card } from "react-bootstrap";
@@ -12,7 +13,7 @@ function SingleProduct(props) {
   const [cardItem, setCardItem] = useContext(cartContext);
 
   const name = props.name;
-  const title = name.substring(0, 30);
+  const title = name.substring(0, 20);
 
   const addToCart = () => {
     if (cardItem.some((item) => item.id === props.id)) {
@@ -40,10 +41,12 @@ function SingleProduct(props) {
   return (
     <div className="card single-card" style={{ width: "100%", height: "100%" }}>
       <Link to={`/product/${props.id}`}>
-        <img
-          src={props.url}
-          style={{ objectFit: "cover", height: "100%", width: "100%" }}
-        />
+        <div style={{ height: 186 }}>
+          <img
+            src={props.url}
+            style={{ objectFit: "contain", height: "100%", width: "100%" }}
+          />
+        </div>
       </Link>
       <div>
         <p
@@ -53,27 +56,6 @@ function SingleProduct(props) {
           {title}...
         </p>
       </div>
-      <div className="row ">
-        <div
-          className="price col"
-          style={{ marginLeft: "2px", textAlign: "left" }}
-        >
-          <h7>Rs.{props.price}</h7>
-
-          {props.discount && (
-            <p className="discount-percentage"> {props.discount}off</p>
-          )}
-        </div>
-
-        <div className="col-4">
-          <ShoppingCartIcon
-            fontSize="large"
-            color="error"
-            onClick={addToCart}
-          />
-        </div>
-      </div>
-
       <Rating
         className="fixed-rating"
         name="read-only half-rating"
@@ -82,6 +64,40 @@ function SingleProduct(props) {
         value={props.rating}
         readOnly
       />
+      <div className="row ">
+        <div
+          className="price col"
+          style={{ marginLeft: "2px", textAlign: "left" }}
+        >
+          <h7>Rs.{props.price}</h7>
+
+          {props.discount && (
+            <p className="discount-percentage" style={{ fontWeight: "bold" }}>
+              {" "}
+              {props.discount} off
+            </p>
+          )}
+        </div>
+
+        {/* <div className="col-4">
+          <ShoppingCartIcon
+            fontSize="large"
+            color="error"
+            onClick={addToCart}
+          />
+        </div> */}
+      </div>
+      <br />
+      <Button
+        variant="contained"
+        color="secondary"
+        startIcon={<ShoppingCartIcon />}
+        style={{ position: "absolute", left: 0, right: 0, bottom: 0 }}
+        fullWidth
+        onClick={addToCart}
+      >
+        Add
+      </Button>
     </div>
   );
 }
